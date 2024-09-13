@@ -72,7 +72,7 @@ and the rest follows similarly. <span style="float:right;">$\square$</span>
 
 We reduce to $\textsf{SPIN}_{\Delta_1}$ from $\textsf{MAXCUT}$ problem, which is $\sP$-hard {% cite Jerrum1993 -f rna_ising_model %}. Let $G = (V, E)$ be a graph, a cut is a subset $U \subseteq V$. Denote $\overline{U} = V \setminus U$ and by $E(U, \overline{U})$ the set of edges with one endpoint in $U$ and the other in $\overline{U}$.
 
-(define MAXCUT)
+**Problem $\textsf{MAXCUT}$.** Given a graph $G = (V, E)$ as input, output $\max_U \| E(U, \overline{U}) \|$.
 
 Given a graph $G = (V, E)$, we number the vertices $V = \{v_1, v_2, \cdots, v_{\|V\|}\}$. Denote $d_i = \deg v_i$ the degree of $v_i$, we number $v_i$'s neighbours as $v_{i, 1}, v_{i, 2}, \cdots, v_{i, d_i}$. To $v_{i, j}$, we assign the index $I_{i, j} = i-1 + \sum_{k = 1}^{i-1} d_i + j-1$.
 

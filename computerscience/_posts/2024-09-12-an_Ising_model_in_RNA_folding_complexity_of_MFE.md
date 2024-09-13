@@ -61,6 +61,8 @@ Denoting $C = \max_{U'} E(U', \overline{U'})$, noting that $2\|E\| = 3\|V\|$ as 
 
 In this subsection, we consider alphabet of Watson-Crick pairing $\Sigma = \\{\A, \T, \G, \C\\}$. Our reduction is almost the same to that of Lyngsø for BPS model. Recall $\textsf{BINPACKING}$ problem.
 
+**Problem $\textsf{BINPACKING}$.** Given positive integers $B$ and $C$, and $k$ positive integers $a_1, \cdots, a_k$ as input, output $\textsf{YES}$ if there exists a partition of $\\{1, 2, \cdots, k\\}$ into $B$ sets $I_1, I_2, \cdots, I_B$ such that for all $1 \leq i \leq B$, one has $\sum_{j \in I_i} a_j \leq C$. Otherwise, output $\textsf{NO}$.
+
 Given an instance of $\textsf{BINPACKING}$ problem, denote $A = \sum_{i = 1}^{k} a_i$, and consider the following sequence
 \\[
     q = \C^{a_1} \A \C^{a_2} \A \cdots \A \C^{a_k} \left(\A \G^C\right)^B.

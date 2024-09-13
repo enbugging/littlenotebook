@@ -97,11 +97,11 @@ In this fashion, it is straightforward to define an analogy, which we call Ising
 
 Given our two energy functions, it is straightforward to define the problem of finding minimum free energy.
 
-(define MFE)
+**Problem $\textsf{MFE}\_\{\Delta\}$ ($\Delta \in \{\Delta\_1, \Delta\_2\}$).** Given $\alpha$ and a nucleotide sequence $q$ as input, output $\min_{S, \sigma} \Delta(S, \sigma)$.
 
 Another interesting problem is given a secondary structure $S$, evaluating the free energy of $S$. In the classical setting, the energy is entirely determined by $S$, whose evaluation is done in polynomial time. However, in our new setting, the energy also depends on the choice of spin configuration $\sigma$, and evaluating the energy of $S$ amounts to an optimisation problem over all possible choices of $\sigma$, which a priori is non-trivial. We thus introduce it as a separate problem.
 
-(define SPIN)
+**Problem $\textsf{SPIN}\_\{\Delta\}$ ($\Delta \in \{\Delta\_1, \Delta\_2\}$).** Given $\alpha$, a nucleotide sequence $q$, and a secondary structure $S$ as input, output $\min_{S, \sigma} \Delta(S, \sigma)$ if $S \in \mathcal{S}$, and $\infty$ otherwise.
 
 Our results are summarise in the following theorems.
 
