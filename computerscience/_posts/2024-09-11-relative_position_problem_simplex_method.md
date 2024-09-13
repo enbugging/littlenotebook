@@ -106,6 +106,7 @@ To see how much FHR outperformed compared with MPR, the following table shows th
 |           Worse           | 15.9% | 17.0% | 19.55% |  20.9% |  19.5% |
 | $\Delta\_{\text{better}}$ |  1.66 |  2.01 |  2.43  |  3.06  |  3.60  |
 |  $\Delta\_{\text{worse}}$ |  1.68 |  2.09 |  2.56  |  3.28  |  3.90  |
+
 <div align="center">Table 1. Comparison of performance for FHR and MPR. $\Delta\_{\text{better}}$ and $\Delta\_{\text{worse}}$ denote the gain and loss in number of extremal function calls when FHR performs better and worse, respectively.</div>
 
 ## 5. Complexity assuming termination
