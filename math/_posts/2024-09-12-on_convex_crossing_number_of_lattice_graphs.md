@@ -71,7 +71,7 @@ which resolves an open question by Schaefer {% cite Schaefer2013 -f probabilisti
 
 **Remark 1.** Shahrokhi et al. {% cite Shahrokhi2004 -f probabilistic_method_on_convex_crossing_number %} also showed that if one takes $H$ to be one of the infinite square, hexagonal, or triangular lattices in the place and let $C$ be any bounded open convex domain, then for any $\lambda > 1$, denoting $H_\lambda$ the induced subgraph of $H$ on the vertex set $V(H) \cap \lambda C$, one has 
 \\[
-    \ccrn(H_\lambda) = \Omega\left(\|V(H_\lambda)\| \cdot \log \| V(H_\lambda) \|\right),
+    \ccrn{H_\lambda} = \Omega\left(\|V(H_\lambda)\| \cdot \log \| V(H_\lambda) \|\right),
 \\]
 where $\Omega(\cdot)$ refers to the asymptotics as $\lambda$ tends to infinity. However, it is not clear how it will be translated to an asymptotics for $\Omega(M_{m, n})$.
 

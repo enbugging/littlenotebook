@@ -170,6 +170,7 @@ $$
     & \leq \left[\frac{1}{d}\sum_{j=1}^{d} \left(\frac{1}{F} + \frac{3f^2_j}{F^2} \right)\right]^d = \left[\frac{1}{F} + \frac{3}{dF}- \frac{3}{dF^2}\right]^d \leq 1
 \end{split}
 $$
+
 where the last inequality holds for $d \geq 3$, as
 \\[
     1 - \frac{1}{F} - \frac{3}{dF} + \frac{3}{dF^2} = \left(1 - \frac{1}{F}\right)\left(1 - \frac{3}{dF}\right) \geq 0 \Rightarrow \frac{1}{F} + \frac{3}{dF} - \frac{3}{dF^2} \leq 1.

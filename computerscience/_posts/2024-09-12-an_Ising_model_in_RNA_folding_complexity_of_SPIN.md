@@ -39,10 +39,10 @@ where
 
 $$
 \begin{align*}
-    \left\|\alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} (\delta - \sigma^S_i) \sigma^S_j\right\|
-    & \leq \alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} \|(\delta - \sigma^S_i) \sigma^S_j\| \\
-    & = \alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} \|\delta - \sigma^S_i\| \\
-    & = 2\alpha \| \{ i \mid a_k \leq i \leq b_k, \sigma^S_i = -\delta \} \\
+    \left|\alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} (\delta - \sigma^S_i) \sigma^S_j\right|
+    & \leq \alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} |(\delta - \sigma^S_i) \sigma^S_j| \\
+    & = \alpha \sum_{a_k \leq i \leq b_k \mid (i, j) \in S} |\delta - \sigma^S_i| \\
+    & = 2\alpha | \{ i \mid a_k \leq i \leq b_k, \sigma^S_i = -\delta \} \\
     & \leq \alpha (b_k - a_k + 1) \leq \alpha n < 2,
 \end{align*}
 $$
@@ -58,10 +58,10 @@ where
 
 $$
 \begin{align*}
-    \left\|\alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} (\delta - \sigma^S_i) \sigma^S_j\right\|
-    & \leq \alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} \|(\delta - \sigma^S_i) \sigma^S_j\| \\
-    & = \alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} \|\delta - \sigma^S_i\| \\
-    & = 2\alpha \| \{ i \mid a_k \leq i \leq b_k, \sigma^S_i = -\delta \} \\
+    \left|\alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} (\delta - \sigma^S_i) \sigma^S_j\right|
+    & \leq \alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} |(\delta - \sigma^S_i) \sigma^S_j| \\
+    & = \alpha \sum_{a_k \leq i \leq b_k \mid (i, j), (i+1, j-1) \in S} |\delta - \sigma^S_i| \\
+    & = 2\alpha | \{ i \mid a_k \leq i \leq b_k, \sigma^S_i = -\delta \} \\
     & \leq \alpha (b_k - a_k + 1) \leq \alpha n < 2,
 \end{align*}
 $$
@@ -90,8 +90,8 @@ On the other hand, $\sum_{k = 1}^{\|V\|} \sum_{i = I_{k, 1}}^{I_{k, d_k}-1} \sig
 $$
 \begin{align*}
 	\Delta_1(S, \sigma^S) 
-	& = \alpha \sum_{(i, j) \in S} \sigma_i \sigma_j - \sum_{k = 1}^{\|V\|} \sum_{i = I_{k, 1}}^{I_{k, d_k}-1} \sigma_i \sigma_{i+1} \\
-	& = \alpha (|E| - 2|E(U^S, \overline{U^S})|) - 2|E| + \|V|, 
+	& = \alpha \sum_{(i, j) \in S} \sigma_i \sigma_j - \sum_{k = 1}^{|V|} \sum_{i = I_{k, 1}}^{I_{k, d_k}-1} \sigma_i \sigma_{i+1} \\
+	& = \alpha (|E| - 2|E(U^S, \overline{U^S})|) - 2|E| + |V|, 
 \end{align*}
 $$
 
