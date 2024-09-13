@@ -28,7 +28,6 @@ gem 'jekyll-paginate'
 gem 'jekyll-sitemap'
 gem 'jekyll-seo-tag'
 
-gem "github-pages", group: :jekyll_plugins
 gem "jekyll-include-cache", group: :jekyll_plugins
 gem 'jekyll-scholar', group: :jekyll_plugins
 gem 'wdm', '>= 0.1.0'
