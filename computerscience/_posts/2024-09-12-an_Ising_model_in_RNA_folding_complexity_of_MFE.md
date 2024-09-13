@@ -16,7 +16,7 @@ $$
 \newcommand{\C}{\textsf{C}}
 $$
 
-(This is part 3 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.)
+This is part 3 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.
 
 ## 6. Complexity of $\textsf{MFE}_\Delta$
 ### 6.1. $\sP$-hardness of $\textsf{MFE}\_\{\Delta\_1\}$ and of $\textsf{MFE}\_\{\Delta\_2\}$

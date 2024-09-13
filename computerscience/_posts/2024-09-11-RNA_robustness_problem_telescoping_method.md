@@ -10,7 +10,7 @@ $$
 \newcommand{\vertex}{\text{vert}}
 $$
 
-(This is mainly taken from Chapter 6 of my Bachelor thesis at École Polytechnique under supervision of Prof. Sarah J. Berkemer and Prof. Yann Ponty, titled ["Polynomial-time parametric optimisation"](https://arxiv.org/abs/2304.14962))
+This is mainly taken from Chapter 6 of my Bachelor thesis at École Polytechnique under supervision of Prof. Sarah J. Berkemer and Prof. Yann Ponty, titled ["Polynomial-time parametric optimisation"](https://arxiv.org/abs/2304.14962)
 
 ## 1. Introduction
 

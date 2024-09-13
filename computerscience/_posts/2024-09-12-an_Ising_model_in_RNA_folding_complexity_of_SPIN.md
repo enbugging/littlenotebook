@@ -11,7 +11,7 @@ $$
 \newcommand{\sP}{\textsf{#P}}
 $$
 
-(This is part 2 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.)
+This is part 2 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.
 
 ## 5. Complexity of $\\textsf{SPIN}\_\\Delta$
 
