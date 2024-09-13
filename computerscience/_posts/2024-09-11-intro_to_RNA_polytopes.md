@@ -155,7 +155,7 @@ In the context of graphical models, Pachter and Sturmfels {% cite Pachter2004 Pa
 
 A more thorough treatment can be found in original articles, but for sake of simplicity, in this thesis, we shall derive the scheme in a more intuitive fashion, and without machinery used by Pachter and Sturmfels, such as Newton polytopes.
 
-First, we note that the Nussinov's algorithm in our example uses only two operations, namely addition and taking the max. It turns out to be the paradigm for many other dynamic programming algorithm, that Tendeau formalised in definition \cite{Tendeau1998}, and thus in this case, instead of computing in full the dynamic programming to trace out the boundary of $\mathcal{P}(q)$, we only need to keep track of how the polytopes evolve as the algorithm is executed.
+First, we note that the Nussinov's algorithm in our example uses only two operations, namely addition and taking the max. It turns out to be the paradigm for many other dynamic programming algorithm, that Tendeau formalised in definition {% cite Tendeau1998 -f rna_polytopes %}, and thus in this case, instead of computing in full the dynamic programming to trace out the boundary of $\mathcal{P}(q)$, we only need to keep track of how the polytopes evolve as the algorithm is executed.
 
 Given two terms $a(p)$ and $b(p)$ (which stands for values of form $f(i, j)$ for some $i$ and $j$ in our cases) whose exact values depend on the choice of parameter set $p$ at the beginning of execution, to which we associate two polytopes $A$ and $B$. Recalling the definition of such polytopes, we have that $a(p) = h\_A(p)$, and likewise, $b(p) = h\_B(p)$. Therefore, suppose we associate to the term $\max(a(p), b(p))$ a polytope $C$, then one must have 
 \\[
