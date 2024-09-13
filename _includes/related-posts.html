@@ -7,13 +7,17 @@
         {% if listed_posts_urls contains mypost.url %}
         {% else %}
           <li>
-            <h3>
-              <a href="{{ site.github.url }}{{ mypost.url }}">
-                {{ mypost.title }}
-                <!--<img src="{{ site.url }}{{ site.baseurl }}/images/{{ mypost.image.teaser }}">-->
-                <!--<small>{{ mypost.date | date: "%B %-d, %Y" }}</small>-->
-              </a>
-            </h3>
+            <div style="position: relative;">
+                <h3 style="display: inline">
+                    <a href="{{ site.baseurl }}{{ mypost.url }}">
+                        {{ mypost.title }}
+                        <!--<img src="{{ site.url }}{{ site.baseurl }}/images/{{ mypost.image.teaser }}">-->
+                    </a>
+                </h3>
+                <div style="position: absolute; right: 0; bottom: 0; color: #999999;">
+                    on {{ mypost.date | date: "%B %-d, %Y" }}
+                </div>
+            </div>
           </li>
           {% assign listed_posts_urls = listed_posts_urls | push: mypost.url %}
         {% endif %}
