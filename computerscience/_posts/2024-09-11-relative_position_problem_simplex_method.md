@@ -133,7 +133,7 @@ What needs to be done is to generalise this construction to higher dimensions. O
 
 ![](/emilesnotebook/assets/img/rna_polytopes/simplex_counterexample.png#center)
 <div align="center">Figure 4a. Construction in 2D...</div>
-![](/emilesnotebook/assets/img/rna_polytopes/simplex_counterexample_3d.png#center)
+![](/emilesnotebook/assets/img/rna_polytopes/simplex_counterexample_3D.png#center)
 <div align="center">Figure 4b. ...which is then lifted to 3D.</div>
 
 ## 6. Conclusion

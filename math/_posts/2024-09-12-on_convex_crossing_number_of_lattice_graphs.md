@@ -75,7 +75,7 @@ which resolves an open question by Schaefer {% cite Schaefer2013 -f probabilisti
 \\]
 where $\Omega(\cdot)$ refers to the asymptotics as $\lambda$ tends to infinity. However, it is not clear how it will be translated to an asymptotics for $\Omega(M_{m, n})$.
 
-**Remark 2.** Consider the torus graph $T_{m, n}$, whereof $M_{m, n}$ is a subgraph, thus one has that $\ccrn{T_{m, n}} \geq \ccrn{T_{m, n}}$, so the same lower bound applies. Now the upper bound no longer applies, or at least not trivially so; Kainen {% cite Kainen2011 -f probabilistic_method_on_convex_crossing_number %} showed that
+**Remark 2.** Consider the torus graph $T_{m, n}$, whereof $M_{m, n}$ is a subgraph, thus one has that $\ccrn{T_{m, n}} \geq \ccrn{M_{m, n}}$, so the same lower bound applies. Now the upper bound no longer applies, or at least not trivially so; Kainen {% cite Kainen2011 -f probabilistic_method_on_convex_crossing_number %} showed that
 \\[
     \ccrn{T_{m, n}} \leq \frac{m^3 + 3n^2}{2}
 \\]
@@ -83,7 +83,7 @@ for even $m$ and $n$. However, there are generalisations of the Theorem 1 above,
 \\[
     \crn{G} \leq c_g \sum_{v \in V} d_v^2
 \\]
-for some constant $c_g$ depending only on $g$. In particular, for $T_{m, n}$, one can take $g = 1$, thus giving $\crn{T_{m, n}} = \Omega(mn)$. Theorem 1 then implies that $\ccrn{T_{m, n}} = \Omega(mn \log (mn))$, thus 
+for some constant $c_g$ depending only on $g$. In particular, for $T_{m, n}$, one can take $g = 1$, thus giving $\crn{T_{m, n}} = \Omega(mn)$. Theorem 1 then implies that $\ccrn{T_{m, n}} = O(mn \log (mn))$, thus 
 \\[
     \ccrn{T_{m, n}} = \Theta(mn \log (mn)).
 \\]
@@ -104,7 +104,7 @@ Choosing $\sigma$ from $S_{n^2}$ uniformly random, and let $X\_1, X\_2, \cdots, 
 
 First, let us find $\mathbb{E}[X]$. Consider a pair of edges that can cross, $(a, b)$ and $(c, d)$. Since the crossing of these edges involves only themselves and no other edges, we can safely ignore other vertices. There are $24$ permutations of $a$, $b$, $c$, and $d$, but since we place them on a circle, we can fix the first vertex, say, $a$. Then there remain $6$ permutations, which are $(a, b, c, d)$, $(a, b, d, c)$, $(a, c, b, d)$, $(a, c, d, b)$, $(a, d, b, c)$, $(a, d, c, b)$. Only $2$ of which gives a crossing, thus $\mathbb{E}[X_i] = \frac{1}{3}$, and so $\mathbb{E}[X] = \mu_n = \frac{\mathcal{E}_n}{3}$.
 
-## 4. Dependence graph and tail bound
+## 4. Dependency graph and tail bound
 
 **Definition 1.** Let $Y = \\{Y_{n, k} \mid 1 \leq k \leq N_n\\}$ be an array of random variables. We say that a graph $G$ is a _dependency_ graph for $Y$ if the following two conditions are satisfied:
 - There exists a bijection between the random variables $Y_{n, k}$ and the vertices of $G$.

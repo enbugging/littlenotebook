@@ -150,7 +150,7 @@ $$
 \end{align*}
 $$
 
-Thus we have a $\textsf{L}$-reduction and $\textsf{SPIN}_{\Delta_1}$ is $\APX$-hard.
+Thus we have an $\textsf{L}$-reduction and $\textsf{SPIN}_{\Delta_1}$ is $\APX$-hard.
 
 ### 5.3. Complexity of $\textsf{SPIN}_{\Delta_2}$
 

@@ -68,7 +68,7 @@ At the same time, one still wishes that there is some nice structure to the set 
 
 But I abandoned this path for now. Many reasons motivated me to consider regular polyhedra, e.g. the radial nature of $f$ motivates that of $g$ and eventually $g_m$ but even in three dimensional, only cube out of all the Platonic solids tiles the space, since the other solids have nonzero Dehn invariant. The same problem persists for higher dimensions. In theory, one could consider other polytopes, e.g. truncated octahedron, which also tiles the space, but the calculation quickly proved to be cumbersome whilst not hinting any immediate benefits.
 
-The same reasons justified abandonning the consideration of more general lattices instead of $\mathbb{Z}^n$. The lattices being conjectured to be optimal have high degrees of symmetry, and it makes little sense (whilst still possible!) that one would require a highly assymetric structure to prove that linear programming bound is ineffective.
+The same reasons justified abandonning the consideration of more general lattices instead of $\mathbb{Z}^n$. The lattices being conjectured to be optimal have high degrees of symmetry, and it makes little sense (whilst still possible!) that one would require a highly asymetric structure to prove that linear programming bound is ineffective.
 
 ### Convergence.
 
