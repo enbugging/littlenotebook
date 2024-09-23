@@ -17,7 +17,7 @@ This is part 2 of my Bachelor thesis during my first year at Ulm, carried out at
 
 All reductions used to prove complexity hardness results regarding $\textsf{SPIN}$ and $\textsf{MFE}$ rely on the following two essential observations. In this section, it is always assumed without loss of generality that $S \in \mathcal{S}$.
 
-Firstly, only the spins of paired nucleotides are taken into account in $\Delta_1$ or $\Delta_2$. This means we can remove all the unpaired nucleotides, and thus split the original strand $q$ into a number of contiguous subsequences $q_1, q_2, \cdots, q_m$, where all nucleotides within $q_i$ for a given $i$ are paired (not necessarily with each other). Denote by $\{a_i, a_i + 1, \cdots, b_i\}$ the positions of $q_i$'s nucleotides in $q$, we can rewrite $\Delta_1$ as follow
+Firstly, only the spins of paired nucleotides are taken into account in $\Delta_1$ or $\Delta_2$. This means we can remove all the unpaired nucleotides, and thus split the original strand $q$ into a number of contiguous subsequences $q_1, q_2, \cdots, q_m$, where all nucleotides within $q_i$ for a given $i$ are paired (not necessarily with each other). Denote by $\\{a_i, a_i + 1, \cdots, b_i\\}$ the positions of $q_i$'s nucleotides in $q$, we can rewrite $\Delta_1$ as follow
 \\[
 	\Delta_1(S, \sigma) = \alpha \sum_{(i, j) \in S} \sigma_i \sigma_j - \sum_{k = 1}^m \sum_{i = a_k}^{b_k-1} \sigma_i \sigma_{i+1}.
 \\]
@@ -74,13 +74,13 @@ We reduce to $\textsf{SPIN}_{\Delta_1}$ from $\textsf{MAXCUT}$ problem, which is
 
 **Problem $\textsf{MAXCUT}$.** Given a graph $G = (V, E)$ as input, output $\max_U \| E(U, \overline{U}) \|$.
 
-Given a graph $G = (V, E)$, we number the vertices $V = \{v_1, v_2, \cdots, v_{\|V\|}\}$. Denote $d_i = \deg v_i$ the degree of $v_i$, we number $v_i$'s neighbours as $v_{i, 1}, v_{i, 2}, \cdots, v_{i, d_i}$. To $v_{i, j}$, we assign the index $I_{i, j} = i-1 + \sum_{k = 1}^{i-1} d_i + j-1$.
+Given a graph $G = (V, E)$, we number the vertices $V = \\{v_1, v_2, \cdots, v_{\|V\|}\\}$. Denote $d_i = \deg v_i$ the degree of $v_i$, we number $v_i$'s neighbours as $v_{i, 1}, v_{i, 2}, \cdots, v_{i, d_i}$. To $v_{i, j}$, we assign the index $I_{i, j} = i-1 + \sum_{k = 1}^{i-1} d_i + j-1$.
 
 Consider a nucleic acid sequence of length $n = 2\|E\| + \|V\| - 1 = \|V\| - 1 + \sum_{i = 1}^{\|V\|} d_i$, we construct the following secondary structure $S$: for an edge $(v_i, v_j) \in E$ and suppose that $v_i = v_{j, \ell}$ and $v_j = v_{i, k}$, we have $(I_{i, k}, I_{j, \ell}) \in S$. It is clear that $\|S\| = \|E\|$, and each cut $U$ defines a spin configuration $\sigma$, say, by assigning $\sigma_{I_{i, j}} = 1$ if and only if $v_i \in U$.
 
 Now here is the intuition: since each nucleotide can bond with another one other, to have arbitrary degree for vertices in $G$, we encode the neighbourhood of each vertex as a contiguous subsequence in the nucleic acid. These subsequences are separated by one nucleotide and all nucleotides within one are paired, thus by choosing $\alpha < \frac{2}{n}$ and Lemma 4, in an optimal spin configuration each subsequence has all its nucleotides having the same spin. This partitions $V$ into $U$ and $\overline{U}$.
 
-More rigorously speaking, by construction, we have that the contiguous subsequences are $P_i = \{I_{i, 1}, I_{i, 2}, \cdots, I_{i, d_i}\}$. Let $\sigma^S$ be an optimal spin configuration, i.e. $\Delta_1(S, \sigma^S) = \min_{\sigma} \Delta_1 (S, \sigma)$. By Lemma 4, we have that for all $1 \leq k \leq \|V\|$ and $1 \leq i, j \leq d_k$, we have that $\sigma^S_i = \sigma^S_j = \delta_i$, thus we can unambiguously define the spin $\delta_i$ as the spin of nucleotides in $P_i$. Let $U^S = \{v_i \mid \delta_i = 1\}$, then $\overline{U^S} = \{v_i \mid \delta_i = -1\}$. Therefore, 
+More rigorously speaking, by construction, we have that the contiguous subsequences are $P_i = \\{I_{i, 1}, I_{i, 2}, \cdots, I_{i, d_i}\\}$. Let $\sigma^S$ be an optimal spin configuration, i.e. $\Delta_1(S, \sigma^S) = \min_{\sigma} \Delta_1 (S, \sigma)$. By Lemma 4, we have that for all $1 \leq k \leq \|V\|$ and $1 \leq i, j \leq d_k$, we have that $\sigma^S_i = \sigma^S_j = \delta_i$, thus we can unambiguously define the spin $\delta_i$ as the spin of nucleotides in $P_i$. Let $U^S = \{v_i \mid \delta_i = 1\}$, then $\overline{U^S} = \\{v_i \mid \delta_i = -1\\}$. Therefore, 
 \\[
     \sum_{(i, j) \in S} \sigma_i \sigma_j = \|E \setminus E(U^S, \overline{U^S})\| - \|E(U^S, \overline{U^S})\| = \|E\| - 2\|E(U^S, \overline{U^S})\|.
 \\]
@@ -156,7 +156,7 @@ Thus we have an $\textsf{L}$-reduction and $\textsf{SPIN}_{\Delta_1}$ is $\APX$-
 
 The reduction goes more or less the same, except now instead of one bond for each edge of $G$, we have a stack, i.e. two bonds of form $(i, j)$ and $(i+1, j-1)$.
 
-More formally, let $G = (V, E)$ be a simple graph, we number the vertices $V = \{v_1, v_2, \cdots, v_{\|V\|}\}$. Denote $d_i = \deg v_i$ the degree of $v_i$, we number the neighbours of $v_i$ as $v_{i, 1}, v_{i, 2}, \cdots, v_{i, d_i}$. To $v_{i, j}$, we assign two indices $I_{i, j} = i-1 + 2\sum_{k = 1}^{i-1} d_i + 2(j-1)$ and $J_{i, j} = I_{i, j}+1$.
+More formally, let $G = (V, E)$ be a simple graph, we number the vertices $V = \\{v_1, v_2, \cdots, v_{\|V\|}\\}$. Denote $d_i = \deg v_i$ the degree of $v_i$, we number the neighbours of $v_i$ as $v_{i, 1}, v_{i, 2}, \cdots, v_{i, d_i}$. To $v_{i, j}$, we assign two indices $I_{i, j} = i-1 + 2\sum_{k = 1}^{i-1} d_i + 2(j-1)$ and $J_{i, j} = I_{i, j}+1$.
 
 Consider a nucleic acid sequence of length $n = 4\|E\| + \|V\| - 1$, we construct the following secondary structure $S$: for an edge $(v_i, v_j) \in E$ with $i < j$ and suppose that $v_i = v_{j, \ell}$ and $v_j = v_{i, k}$, we have $(I_{i, k}, J_{j, \ell}), (J_{i, k}, I_{j, \ell})\in S$. It is clear that $\|S\| = \|E\|$, and each cut $U$ defines a spin configuration $\sigma$, say, by assigning $\sigma_{I_{i, j}} = 1$ if and only if $v_i \in U$.
 
