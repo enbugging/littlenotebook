@@ -101,7 +101,7 @@ Thus to conclude, not only solving $\textsf{SPIN}_{\Delta_1}$ gives a solution t
 
 ### 5.2. $\APX$-hardness of $\textsf{SPIN}_{\Delta_1}$
 
-As for $\APX$-hardness, whilst it appears to be at least complicated, if not impossible, to give a approximation-preserving reduction from the above construction, we rely on the fact that $\textsf{MAXCUT}$ remains $\APX$-hard for cubic graphs {% cite Alimonti2000 -f rna_ising_model %}. This gives a strengthened version of Lemma 4. In this subsection, $G = (V, E)$ is a simple cubic graph, i.e. $d_v = 3$ for all $v \in V$.
+As for $\APX$-hardness, whilst it appears to be at least complicated, if not impossible, to give an approximation-preserving reduction from the above construction, we rely on the fact that $\textsf{MAXCUT}$ remains $\APX$-hard for cubic graphs {% cite Alimonti2000 -f rna_ising_model %}. This gives a strengthened version of Lemma 4. In this subsection, $G = (V, E)$ is a simple cubic graph, i.e. $d_v = 3$ for all $v \in V$.
 
 **Lemma 5.** Let $S$ be any secondary structure such that paired nucleotides form contiguous subsequences of length at most $3$, and $\sigma^S = \min_\sigma \Delta_1(S, \sigma)$. If $\alpha < 1$, then for all $1 \leq k \leq m$ and $a_k \leq i, j \leq b_k$, $\sigma^S_i = \sigma^S_j$.
 

@@ -27,7 +27,7 @@ Convex crossing number, denoted $\ccrn{G}$ adds one more constraint on the drawi
 
 This note has two parts. Part 1 aims at generalising this result for $M_{m, n}$. Section 2 summarises the proof that $\ccrn{M_{m, n}} = \Theta(mn \log (mn))$, and proves the same for $T_{m, n}$. To my best knowledge, neither of these questions have been addressed.
 
-Part 2 explores the same lower bound for the convex crossing number of $M_{n, n}$ using a probabilistic method. Section 3 outlines the setting for a probabilistic method; Section 3 describes the argument (which does _not_ work, for the reasons which will be explained in Section 4). Section 5 described an alternative proof of central limit theorem for crossings of a random graph randomly embedded, and Section 6 discusses with final remarks.
+Part 2 explores the same lower bound for the convex crossing number of $M_{n, n}$ using a probabilistic method. Section 3 outlines the setting for a probabilistic method; Section 4 describes the argument (which does _not_ work, for the reasons which will be explained in Section 5). Section 6 described an alternative proof of central limit theorem for crossings of a random graph randomly embedded, and Section 7 discusses with final remarks.
 
 ## 2. Convex crossing number of $M_{m, n}$
 
