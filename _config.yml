@@ -20,8 +20,8 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag, jekyll-scholar]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Emile's notebook"
-description:	       "Or my frivolous notes"
+title:		           "Little notebook"
+description:	       "Of my exploration"
 author:              "NGUYEN Doan-Dai"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
@@ -29,8 +29,8 @@ author:              "NGUYEN Doan-Dai"
 #  path: rss-feed.xml
 
 # GitLab page
-baseurl: "/emilesnotebook" # the subpath of the site
-url: "http://megumitadokoro.gitlab.io/" # the base hostname & protocol for the site
+baseurl: "/littlenotebook" # the subpath of the site
+url: "http://enbugging.github.io/" # the base hostname & protocol for the site
 exclude:
  - vendor
  - Gemfile

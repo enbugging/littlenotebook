@@ -39,8 +39,36 @@ Old considered fonts
     src: url('1785_GLC_Baskerville-Ita-webfont.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'CMU Serif';
+    font-style: normal;
+    font-weight: normal;
+    src:url('Serif/cmunrm.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'CMU Serif';
+    font-style: italic;
+    font-weight: normal;
+    src: url('Serif/cmunti.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'CMU Serif';
+    font-style: normal;
+    font-weight: bold;
+    src: url('Serif/cmunbx.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'CMU Serif';
+    font-style: italic;
+    font-weight: bold;
+    src: url('Serif/cmunbi.woff') format('woff');
+}
+
 body {
-    font-family: "1785 GLC Baskerville", serif, "PT Serif", Georgia, "Times New Roman", serif;
+    font-family: "CMU Serif", serif, "PT Serif", Georgia, "Times New Roman", serif;
     font-size: 14px;
     color: #515151;
     background-color: #f1ebe4;
@@ -66,7 +94,7 @@ h1 a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "1785 GLC Baskerville", serif;
+    font-family: "CMU Serif", serif; /* "1785 GLC Baskerville", serif; */
     color: #333;
 }
 
@@ -208,7 +236,7 @@ hr {
     margin-top:3px;
     margin-bottom: 1rem;
     color: #9a9a9a;
-    font-family: "1785 GLC Baskerville", serif;
+    font-family: "CMU Serif", serif; /* "1785 GLC Baskerville", serif; */
     font-size:0.8rem;
 }
 
@@ -239,7 +267,7 @@ hr {
 
 .pagination {
     overflow: hidden;
-    font-family: "1785 GLC Baskerville", serif;
+    font-family: "CMU Serif", serif; /* "1785 GLC Baskerville", serif; */
     text-align: center;
 }
 
