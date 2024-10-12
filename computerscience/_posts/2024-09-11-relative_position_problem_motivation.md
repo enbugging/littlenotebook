@@ -67,9 +67,9 @@ A common approach is to consider a few features whilst fixing the remaining para
 
 In our example earlier, suppose we ignore the feature $c_{GC}$, then we have only 9 signatures left, namely $(0, 0)$, $(0, 1)$, $(0, 2)$, $(1, 0)$, $(1, 1)$, $(1, 2)$, $(2, 0)$, $(2, 1)$, and $(2, 2)$. Drawing on the plane, one obtains a square grid, as shown in Figure 1. On the other hand, the signature $(1, 1)$ lies in the interior of the square and thus is not learnable.
 
-![](/emilesnotebook/assets/img/rna_polytopes/rna_polytope.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/rna_polytope.png#center)
 <div align="center">Figure 1a. RNA polytope in 3D $\mathcal{P}(q)$.</div>
-![](/emilesnotebook/assets/img/rna_polytopes/rna_polytope_2d.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/rna_polytope_2d.png#center)
 <div align="center">Figure 1b. Its projection onto $c_{AU} - c_{GU}$ plane</div>
 
 To see how this happens, let $d > 0$, $E$ be an energy model with a parameter vector $p = (p_1, p_2, ..., p_d)^T \in \mathbb{R}^d$, which assigns to each pair of sequence $q$ and secondary structure $s$ the energy $E(p, q, s) = \langle c(q, s), p \rangle$. We denote $\text{proj} : \mathbb{R}^{d+1} \mapsto \mathbb{R}^d$ the map projecting vectors of $\mathbb{R}^{d+1}$ onto $\mathbb{R}^d$ by omitting the last coordinate. Let $E'$ be a model whose energy function is $E'(p, q, s) = \langle \proj{c(q, s)}, \proj{p} \rangle$, $q$ be a sequence, $s$ be some secondary structure, $x = c(q, s)$, $x' = \proj{x}$.

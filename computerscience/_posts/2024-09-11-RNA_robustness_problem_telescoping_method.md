@@ -24,13 +24,13 @@ Then, consider the RNA polytope $\mathcal{P}(q)$ of a sequence $q$, and we know 
 
 Here, I present a method whereby, similarly to modification of the original dynamic programming algorithm from tropical algebra to polytope algebra as presented by Pachter and Sturmfels {% cite Pachter2004, Pachter2005 %}, one can modify the algorithm further to retrieve only a certain part of the polytope $\mathcal{P}(q)$. The key idea is that for any two polytopes $A$ and $B$, a given quadrant of $A \oplus B$ or of $A \otimes B$ is determined only by the corresponding quadrants of $A$ and $B$, as demonstrated in these figures below.
 
-![](/emilesnotebook/assets/img/rna_polytopes/A.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/A.png#center)
 <div align="center">Figure 1a. $F_D(A)$.</div>
-![](/emilesnotebook/assets/img/rna_polytopes/B.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/B.png#center)
 <div align="center">Figure 1b. $F_D(B)$</div>
-![](/emilesnotebook/assets/img/rna_polytopes/AoplusB_partial.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/AoplusB_partial.png#center)
 <div align="center">Figure 1c. $F_D(A \oplus B)$</div>
-![](/emilesnotebook/assets/img/rna_polytopes/AotimesB_partial.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/AotimesB_partial.png#center)
 <div align="center">Figure 1d. $F_D(A \otimes B)$</div>
 
 This is stated formally as follow.

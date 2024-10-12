@@ -50,9 +50,9 @@ This phase consists of $d+2$ iterations, and can be described as follow.
     - If $\langle v_0, u_i \rangle < h_P(u_i)$, then let $v_i = \sigma_P(u_i)$, one has $\langle v_j, u_i \rangle < \langle v_i, u_i \rangle$ for all $j = 0, 1, .., i-1$.
 In any cases, the affine hull $\mathcal{H}$ in the next iteration will increase in dimension, thus after $d+2$ iterations, we obtain a non-degenerate simplex $Q$.
 
-![](/emilesnotebook/assets/img/rna_polytopes/simplex_example_2D.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/simplex_example_2D.png#center)
 <div align="center">Figure 1. Example in 2D.</div>
-![](/emilesnotebook/assets/img/rna_polytopes/simplex_example_3D.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/simplex_example_3D.png#center)
 <div align="center">Figure 2. A  case where multiple hyperplanes are possible..</div>
 
 In fact, we can incorporate the information regarding $x$ into the scheme, which leads to potential early termination, demonstrated as follow:
@@ -94,7 +94,7 @@ For the test cases, we consider dimensions $2 \leq d \leq 6$. For each dimension
 
 During the experiment, we found that Closest Hyperplane Rule resulted in infinite cycles for some rare cases, and we therefore decided not to include its performance into the final comparison. For the other three rules, all the runtimes were of order milliseconds to seconds, negligible for practical purposes. Since we did not consider code optimisation, our observed runtimes will not reflect well the actual performance, which further inspired the need for another metric described as above. The result is displayed in Figure 3. Note that Furthest Hyperplane Rule slightly outperformed MPR, whereas Random Rule performed worst than both, but they all called extremal function only a linear number of times.
 
-![](/emilesnotebook/assets/img/rna_polytopes/plot.png)
+![](/littlenotebook/assets/img/rna_polytopes/plot.png)
 <div align="center"> Figure 3. Performance of the three pivot rules. The error bars represent 95% confidence interval.</div>
 
 To see how much FHR outperformed compared with MPR, the following table shows the percentage of tests where FHR performed better, as good, and worse than MPR in terms of number of calls to extremal functions. We can see that FHR often outperformed MPR, but with not significant percentage of the time. Moreover, the gain when FHR performs better is smaller than the loss when it does worse. Therefore, it is inconclusive which method is better. Nonetheless, we chose FHR for simplicity and not in looking for a better method. This result is promising and deserves closer studies in the future.
@@ -131,9 +131,9 @@ Now let $n \geq 3$, we claim that
 
 What needs to be done is to generalise this construction to higher dimensions. One of the simple ways to do so in $\mathbb{R}^{d+1}$ is to take an arbitrary 2-dimensional subspace $H$ in which we carry out the above construction, and $d-1$ points $C_0, C_1, ..., C_{d-1}$ such that, for instance, the vectors $\overrightarrow{A_0 C_i}$ for $0 \leq i \leq d-1$ forms a basis of the complementary subspace $H^\perp$. Then, one has $P = \conv{\{A_0, A_1, ..., A_{n+1}, C_0, C_1, ..., C_{d-1}\}}$ is a non-degenerate polytope, and the analysis above holds, with the number of iterations remains $n$. An intuitive reason is because if we suppose a line $\ell \subseteq H$ separates two points $A, B \in H$ in $H$, then the affine hyperplane containing $\ell$ and $C_0, C_1, ..., C_{d-1}$ also separates two points $A$ and $B$ in $\mathbb{R}^{d+1}$.
 
-![](/emilesnotebook/assets/img/rna_polytopes/simplex_counterexample.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/simplex_counterexample.png#center)
 <div align="center">Figure 4a. Construction in 2D...</div>
-![](/emilesnotebook/assets/img/rna_polytopes/simplex_counterexample_3D.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/simplex_counterexample_3D.png#center)
 <div align="center">Figure 4b. ...which is then lifted to 3D.</div>
 
 ## 6. Conclusion

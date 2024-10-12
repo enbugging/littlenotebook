@@ -62,7 +62,7 @@ In $\mathbb{R}^{d+1}$, an ellipsoid $E$ can be represented by a positive definit
 
 Let $\mathcal{C}(\mathcal{E}) = \\{\alpha x\mid x \in \mathcal{E}, \alpha \geq 0\\}$, then $\mathcal{C}(\mathcal{E})$ is a convex cone such that $\mathcal{E} = \mathcal{C}(\mathcal{E}) \cap \mathbb{S}^d$. Let $u$ be the center of $\mathcal{E}$, and consider the hyperplane $H$ tangent to $\mathbb{S}^d$ at $u$. Identify $H$ with $\mathbb{R}^d$ and $u$ with the origin, then we have that $\mathcal{C}(\mathcal{E}) \cap H$ is an ellipsoid $E$ in $\mathbb{R}^d$, centered at the origin. Moreover, by endowing $H$ with a suitable basis, we can even have $E$ admitting vectors in the canonical basis as its axes.
 
-![](/emilesnotebook/assets/img/rna_polytopes/ellipsoid_representation.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/ellipsoid_representation.png#center)
 <div align="center">Figure 1. Spherical ellipsoid and its representation. Solid line and dashed line represent $E_H$ and $\mathcal{E}$, respectively. The plane represents $H$.</div>
 
 Note that there is an abuse of notation here. There is the non-degenerated ellipsoid in $\mathbb{R}^d$, and the degenerated ellipsoid in $\mathbb{R}^{d+1}$ which is contained in $H$. The letter $E$ is used to denote both objects, which causes no confusion due to our identification.

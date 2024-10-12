@@ -123,9 +123,9 @@ where $s'$ ranges over all compatible secondary structures. This motivates us to
 then a structure $s$ that our model can predict necessarily satisfies $\langle c(q, s), p \rangle = h_{\mathcal{P}(q)}(p)$, or equivalently $c(q, s) \in \partial \mathcal{P}(q)$. We call such a pair $(q, s)$ _learnable_ (for model $E$), and we may restrict ourselves to studying only the boundary of $P$.
 
 Back to our example, from the list of 15 possible signatures, we have the polytope $\mathcal{P}(q)$ and its spherical normal polytopes $\mathcal{S}(\mathcal{P}(q))$ shown below.
-![](/emilesnotebook/assets/img/rna_polytopes/rna_polytope.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/rna_polytope.png#center)
 <div align="center">Figure 1a. Example of an RNA polytope, for $q = UAUUCUGAUG$ ...</div>
-![](/emilesnotebook/assets/img/rna_polytopes/rna_normal_polytope.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/rna_normal_polytope.png#center)
 <div align="center">Figure 1b. ... and its spherical normal polytope.</div>
 We have three remarks:
 - Given a parameter set $p$, finding the signature it will predict corresponds to finding the spherical polytope it belongs to, thus this gives us a complete classification of parameter sets.
@@ -144,13 +144,13 @@ In the context of graphical models, Pachter and Sturmfels {% cite Pachter2004 Pa
 	A \oplus B = \conv\\{A \cup B\\}, A \otimes B = A + B.
 \\]
 
-![](/emilesnotebook/assets/img/rna_polytopes/A.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/A.png#center)
 <div align="center">Figure 2a. $A$.</div>
-![](/emilesnotebook/assets/img/rna_polytopes/B.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/B.png#center)
 <div align="center">Figure 2b. $B$</div>
-![](/emilesnotebook/assets/img/rna_polytopes/AoplusB.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/AoplusB.png#center)
 <div align="center">Figure 2c. $A \oplus B$</div>
-![](/emilesnotebook/assets/img/rna_polytopes/AotimesB.png#center)
+![](/littlenotebook/assets/img/rna_polytopes/AotimesB.png#center)
 <div align="center">Figure 2d. $A \otimes B$</div>
 
 A more thorough treatment can be found in original articles, but for sake of simplicity, in this thesis, we shall derive the scheme in a more intuitive fashion, and without machinery used by Pachter and Sturmfels, such as Newton polytopes.
