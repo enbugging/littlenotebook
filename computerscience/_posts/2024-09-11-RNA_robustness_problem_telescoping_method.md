@@ -22,7 +22,7 @@ Since if $\langle x, p \rangle = h_P(p)$ then for any $\lambda \geq 0$, one has 
 
 Then, consider the RNA polytope $\mathcal{P}(q)$ of a sequence $q$, and we know that a secondary structure $s$ is optimal for $q$ with respect to a parameter set $p$, one can define the robustness of $p$ as $\theta_{\mathcal{P}(q)} (p)$. The challenge is how to compute this efficiently, e.g. without resorting to compute the entire RNA polytope, in view of many computational hardness involved (see review on the topic [(Nguyen, 2024)](relative_position_problem_motivation.html)).
 
-Here, I present a method whereby, similarly to modification of the original dynamic programming algorithm from tropical algebra to polytope algebra as presented by Pachter and Sturmfels {% cite Pachter2004, Pachter2005 %}, one can modify the algorithm further to retrieve only a certain part of the polytope $\mathcal{P}(q)$. The key idea is that for any two polytopes $A$ and $B$, a given quadrant of $A \oplus B$ or of $A \otimes B$ is determined only by the corresponding quadrants of $A$ and $B$, as demonstrated in these figures below.
+Here, I present a method whereby, similarly to modification of the original dynamic programming algorithm from tropical algebra to polytope algebra as presented by Pachter and Sturmfels {% cite Pachter2004 Pachter2005 -f rna_polytopes %}, one can modify the algorithm further to retrieve only a certain part of the polytope $\mathcal{P}(q)$. The key idea is that for any two polytopes $A$ and $B$, a given quadrant of $A \oplus B$ or of $A \otimes B$ is determined only by the corresponding quadrants of $A$ and $B$, as demonstrated in these figures below.
 
 ![](/littlenotebook/assets/img/rna_polytopes/A.png#center)
 <div align="center">Figure 1a. $F_D(A)$.</div>
@@ -60,7 +60,7 @@ On the other hand, by definition, for any $x \in A \oplus B$, there exist $\lamb
 \\]
 a contradiction, thus $a \in F_D(A)$. Similarly, if $\mu > 0$ then $b \in F_D(B)$, which together implies $x \in F_D(A) \oplus F_D(B)$. <span style="float:right;">$\square$</span>
 
-This results allows one to specify beforehand a quadrant $D$ of interest, and as they carry out the modified dynamic programming algorithm according to Pachter and Sturmfels {% cite Pachter2004 Pachter2005 %}, only retain relevant parts of the polytope, thus significantly reduce the complexity of the polytopes and speed up the computation.
+This results allows one to specify beforehand a quadrant $D$ of interest, and as they carry out the modified dynamic programming algorithm according to Pachter and Sturmfels {% cite Pachter2004 Pachter2005 -f rna_polytopes %}, only retain relevant parts of the polytope, thus significantly reduce the complexity of the polytopes and speed up the computation.
 
 ## 2. Toward robustness
 
@@ -80,7 +80,7 @@ and
 \\[
     F_{B_{\mathbb{S}^d}(p, \theta_{A \otimes B}(p))}(A \otimes B) \subseteq F_{B_{\mathbb{S}^d}(p, \theta_A(p))}(A) \otimes F_{B_{\mathbb{S}^d}(p, \theta_B(p))}(B).
 \\]
-_Proof._ We recall Proposition 7.12 in Ziegler's _Lectures on Polytopes_ {% cite Ziegler1995 %} stating that $\mathcal{N}(A \otimes B) = \mathcal{N}(A) \wedge \mathcal{N}(B)$, where $\cdot \wedge \cdot$ denotes the common refinement. Thus, it follows immediately by definition that $\theta_{A \otimes B} (p) = \min (\theta_A(p), \theta_B(p))$, whence together with Theorem 1, one deduces
+_Proof._ We recall Proposition 7.12 in Ziegler's _Lectures on Polytopes_ {% cite Ziegler1995 -f rna_polytopes %} stating that $\mathcal{N}(A \otimes B) = \mathcal{N}(A) \wedge \mathcal{N}(B)$, where $\cdot \wedge \cdot$ denotes the common refinement. Thus, it follows immediately by definition that $\theta_{A \otimes B} (p) = \min (\theta_A(p), \theta_B(p))$, whence together with Theorem 1, one deduces
 <div align="center">
 $$
 \begin{split}
@@ -139,3 +139,6 @@ In simple terms, if the robustness of $p$ is positive, one knows that $p$ lies i
     \theta_P(p) = \min_{y \in \vertex{P}\setminus\\{x\\}} \angle(y - x, H)= \min_{y \in \vertex{P}\setminus\\{x\\}} \sin^{-1} \frac{(h_P(p) - \langle y, p \rangle)\| p \|}{\| x - y\|}.
 \\]
 Thus, one only needs to find _all_ points $y \in \vertex{P}\setminus\\{x\\}$ that minimise $\angle(y - x, H)$ and compute $\theta_P(p)$ without explicitly constructing $\mathcal{N}(P)$. This allows us to restrict ourselves to $\mathcal{V}$-representation.
+
+### References 
+{% bibliography --cited -f rna_polytopes %}
