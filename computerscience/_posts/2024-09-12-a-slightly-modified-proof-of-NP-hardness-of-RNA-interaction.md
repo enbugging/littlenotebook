@@ -206,7 +206,7 @@ _Proof._
 ### 3.3. Proof that if $\textsf{mLCS}$ has solution, then $s$ and $r$ are perfectly paired.
 
 Suppose the answer to $\textsf{mLCS}$ instance is yes. Let $t$ be a common substring of all $s_i$'s, and denote $t_i$ be $s_i$ after deleting $t$. Moreover, denote $A^t_i$ (resp. $B^t_i$) the nucleotides in $A_i$ (resp. $B_i$) corresponding with $t$, and $A^s_i$ (resp. $B^s_i$) the nucleotides in $A_i$ (resp. $B_i$) corresponding with $t_i$. Let us see how $s$ and $r$ can be paired up.
--By Lemma 1, all $c$'s can be paired with all $d$'s. Similarly, all $e$'s can be paired with all $f$'s.
+- By Lemma 1, all $c$'s can be paired with all $d$'s. Similarly, all $e$'s can be paired with all $f$'s.
 - Now we pair $u^k$ with $A^t_1$. Note that they all lie to the left of the bond $c-d$, so no internal pseudoknots are created. Then, we pair $A^s_1$ with $B^s_1$.
 - We then pair $B^t_1$ with $B^t_2$, and continue. More generally, we pair $B^t_{2i-1}$ with $B^t_{2i}$, $B^s_{2i}$ with $A^s_{2i}$, $A^t_{2i}$ with $A^t_{2i+1}$, then $A^s_{2i+1}$ with $B^s_{2i+1}$.
 - Finally, after we pair $B^s_{2m}$ with $A^s_{2m}$, we pair $A^t_{2m}$ with $u^k$.
