@@ -41,7 +41,7 @@ The matching model for bipartite graph is defined similarly, except that now we 
 
 ### 2.2. Deficiency and critical sets
 
-Busic et al. {% cite Busic 2013 -f on_critical_sets_of_stable_matching.bib %} showed that a necessary condition for a bipartite matching model to be stablisable is that
+Busic et al. {% cite Busic2013 -f on_critical_sets_of_stable_matching.bib %} showed that a necessary condition for a bipartite matching model to be stablisable is that
 
 $$
 \begin{cases}
@@ -77,7 +77,7 @@ Let us follow the same approach.  Assign to each vertex $u$ a variable $x_u \in 
 \\[
     f(U) = \sum_{u \in V} c_u x_u.
 \\]
-Such an assignment $(x\_u)\_{u \in V}$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$; conversely, if an assignment $x = (x_u)\_{u \in V} \in \{-1, 0, 1\}^V$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$, then no two adjacent vertices $u$ and $v$ can have $x_u = x_v = -1$, and so the set $U = \{u \mid x_u = -1\}$ is independent, and the two conditions are equivalent.
+Such an assignment $(x\_u)\_{u \in V}$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$; conversely, if an assignment $x = (x_u)\_{u \in V} \in \\{-1, 0, 1\\}^V$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$, then no two adjacent vertices $u$ and $v$ can have $x_u = x_v = -1$, and so the set $U = \\{u \mid x_u = -1\\}$ is independent, and the two conditions are equivalent.
 
 Then the problem now is an integer programming problem $(1)$.
 
@@ -125,7 +125,7 @@ _Proof._ This is equivalent to saying that for all weight $c$, there exists an i
     1 & \text{ if } y > 0 \\
     -1 & \text{ if } y < 0 \\
     0 & \text{ otherwise}
-\end{cases}$$ and $x' = (\sgn(x_u))\_{u \in V}$, I claim that $c^T x' \geq c^T x$, and in particular, $x' \in \\{-1, 0, 1\\}^V$ is an integral optimal solution.
+\end{cases}$$ and $x' = (\sgn(x_u))\_{u \in V}$, I claim that $c^T x' \leq c^T x$, and in particular, $x' \in \\{-1, 0, 1\\}^V$ is an integral optimal solution.
 
 Indeed, suppose the contrary that $c^T x' > c^T x$. Denote $\delta = (\delta_u)\_{u \in V}$ where $\delta_u = x\_u - x'\_u$, then one has $c^T \delta < 0$. Consider $x'' = x - \varepsilon \delta = (x_u - \varepsilon \delta_u)\_{u \in V}$ for some $1 > \varepsilon > 0$, we have that for all edge $(u, v) \in E$,
 
