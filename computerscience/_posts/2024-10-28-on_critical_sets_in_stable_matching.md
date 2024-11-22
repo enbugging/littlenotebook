@@ -2,8 +2,8 @@
 layout: post
 title: "On critical sets in stable matching"
 author: "Nguyen Doan Dai"
-categories: math
-tags: math
+categories: computerscience
+tags: math, computerscience
 ---
 
 $$
@@ -75,7 +75,7 @@ A priori, there is no reason for this problem to be tracable: effectively, we ar
 
 Let us follow the same approach.  Assign to each vertex $u$ a variable $x_u \in \\{-1, 0, 1\\}$, where $x_u = -1$ means $u \in U$ and $x_u = 1$ means $u \in N(u)$. Then we can write 
 \\[
-    f(U) = \sum_{u \in V} c_u x_u.
+    f(U) = \sum_{u \in V} \mu(u) x_u.
 \\]
 Such an assignment $(x\_u)\_{u \in V}$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$; conversely, if an assignment $x = (x_u)\_{u \in V} \in \\{-1, 0, 1\\}^V$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$, then no two adjacent vertices $u$ and $v$ can have $x_u = x_v = -1$, and so the set $U = \\{u \mid x_u = -1\\}$ is independent, and the two conditions are equivalent.
 
@@ -84,7 +84,7 @@ Then the problem now is an integer programming problem $(1)$.
 $$
 \begin{equation}
     \begin{array}{ll@{}ll}
-        \text{minimise}  & \displaystyle\sum_{u \in V} c_u x_u &\\
+        \text{minimise}  & \displaystyle\sum_{u \in V} \mu(u) x_u &\\
         \text{subject to}& x_u + x_v \geq 0, &(u, v) \in E &\\
         &x_u \in \{-1, 0,1\}, &u \in V
     \end{array}
@@ -96,7 +96,7 @@ Relaxing $(1)$ gives a linear programming problem $(2)$.
 $$
 \begin{equation}
     \begin{array}{ll@{}ll}
-        \text{minimise}  & \displaystyle\sum_{u \in V} c_u x_u &\\
+        \text{minimise}  & \displaystyle\sum_{u \in V} \mu(u) x_u &\\
         \text{subject to}& x_u + x_v \geq 0, &(u, v) \in E &\\
         &-1 \leq x_u \leq 1, &u \in V
     \end{array}
@@ -108,7 +108,7 @@ Note that vertex cover problem can be posed as
 $$
 \begin{equation}
     \begin{array}{ll@{}ll}
-        \text{minimise}  & \displaystyle\sum_{u \in V} c_u x_u &\\
+        \text{minimise}  & \displaystyle\sum_{u \in V} \mu(u) x_u &\\
         \text{subject to}& x_u + x_v \geq 1, &(u, v) \in E &\\
         &x_u \in \{0, 1\}, &u \in V
     \end{array}
@@ -121,7 +121,7 @@ What I did not expect, however, is that our LP relxation always has _integral_ o
 
 **Lemma 1**. Problem $(2)$ is totally dual integral.
 
-_Proof._ This is equivalent to saying that for all weight $c$, there exists an integral optimal solution. Indeed, fix $c$ and let $x = (x_u)\_{u \in V}$ be an optimal solution. Denote $$\sgn(y) = \begin{cases}
+_Proof._ This is equivalent to saying that for all weight $c$, there exists an integral optimal solution. Indeed, let $c = (\mu(u))\_{u \in V}$ and let $x = (x_u)\_{u \in V}$ be an optimal solution. Denote $$\sgn(y) = \begin{cases}
     1 & \text{ if } y > 0 \\
     -1 & \text{ if } y < 0 \\
     0 & \text{ otherwise}
@@ -149,6 +149,8 @@ Then, it suffices to solve $(2)$ with your favourite method for linear programmi
 Lemma 1 no longer holds for general hyper-graph. Numerical experiments show that nonetheless, if a hyper-graph has rank $r$, then there exists an optimal rational solution whose denominators divide $(r-1)!$, suggesting that it is an approximation solution of $(1)$, e.g. via some rounding technique. Pursuing this direction as done with vertex cover problem should suggest that $(1)$ is in $\FPT$ and $\APX$-complete.
 		
 However, this generalised version does not seem to have any relevance, thus I decided not to pursue the matter.
+
+Note that the corresponding integer linear programming problem no longer encodes the problem of finding critical sets. For the intractability of finding critical sets for hypergraphs, see my other post ([Nguyen, 2024](intractability_of_critical_sets_in_hypergraph_matching)).
 
 ### 4.2. Solving $(2)$ using combinatorial algorithms
 
