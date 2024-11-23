@@ -183,12 +183,12 @@ $$
     & \leq (1-C \varepsilon) (\lambda + 1) \tau(G) - 2\lambda C \varepsilon n \\
     \Leftrightarrow |N'| 
     & \leq (1-C \varepsilon) \tau(G) + \frac{2\lambda}{\lambda + 1} C \varepsilon n \\
-    & \leq (1-C \varepsilon) \tau(G) + \frac{6\lambda}{\lambda + 1} C \varepsilon \tau(G) \\
-    \Leftrightarrow \frac{|N'|}{\tau(G)} & \leq 1 + \epsilon C \frac{5\lambda - 1}{\lambda}.
+    & \leq (1-C \varepsilon) \tau(G) + \frac{12\lambda}{\lambda + 1} C \varepsilon \tau(G) \\
+    \Leftrightarrow \frac{|N'|}{\tau(G)} & \leq 1 + \epsilon C \frac{11\lambda - 1}{\lambda}.
 \end{align*}
 $$
 
-Thus to recap, if we choose $\lambda > 5$ and $C \leq \frac{1}{5} < \frac{\lambda}{5\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
+Thus to recap, if we choose $\lambda > 5$ and $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
 
 
 
