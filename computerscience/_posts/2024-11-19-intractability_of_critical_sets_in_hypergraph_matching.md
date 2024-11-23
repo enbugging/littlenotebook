@@ -110,21 +110,38 @@ which will contradict the minimality of $U$ if $\lambda > 4$.
 
 Then we know that $\overline{N_V} \cup \overline{U_V} = \overline{V}$, suppose that $\overline{N_V} \neq \emptyset$. Let $\overline{u} \in \overline{N_V}$ and consider $U' = (U \setminus \\{u\\}) \cup \\{\overline{u}\\}$ which is still an independent set.
 
-Now this is where the analysis gets messy. Let $v_1, v_2, v_3$ be the neighbours of $u$ in $G$, we have that in $G'$, $N(\\{\overline{u}\\}) = \\{u, v_1, v_2, v_3\\}$. $\overline{u} \in \overline{N_V}$, so at least one vertex amongst $u$, $v_1$, $v_2$, and $v_3$ is in $U$; without loss of generality, assume that $v_1$ is in $U$. We have $N(\\{u\\}) = \\{\overline{u}, v_1, v_2, v_3, \overline{v_1}, \overline{v_2}, \overline{v_3}\\}$, thus $N(\\{u\\}) \setminus N(\\{\overline{u}\\}) = \\{\overline{v_1}, \overline{v_2}, \overline{v_3}\\}$.
+Now this is where the analysis gets most tricky. To simplify our lives, we have the following lemma.
 
-$v_1$ is in $U$, thus in $U'$, thus $\overline{v_1}$ is in both $N(U)$ and $N(U')$. If amongst themselves or the neighbors of $\overline{v_2}$ or $\overline{v_3}$, $u$ was the only vertex in $U$, then when we pass to $U'$, they disappear from $N(U')$. If otherwise, they remain. The other vertices in $N(\\{u\\})$ stay where they are, since we include $\overline{u}$ in $U'$: if they are in $U$, they remain in $U'$, and if they are in $N(U)$, they remain in $N(U')$. This ensures that we have the relation $N(U') \subseteq N(U)$, meaning
+**Lemma 1.** For $A, B \subseteq V'$, one has $N(A \cup B) \subseteq N(A) \cup N(B)$.
+_Proof._ Standard set manipulation gives
+
+$$
+\begin{align*}
+    N(A \cup B)
+    & = \left(\bigcup_{e \cap (A \cup B) \neq \emptyset} e \right) \setminus (A \cup B) \\
+    & = \left(\bigcup_{(e \cap A) \cup (e \cap B) \neq \emptyset} e \right) \setminus (A \cup B) \\
+    & = \left[\left(\bigcup_{e \cap A \neq \emptyset} e\right) \cup \left(\bigcup_{f \cap B \neq \emptyset} f\right) \right] \setminus (A \cup B) \\
+    & = \left[\left(\bigcup_{e \cap A \neq \emptyset} e\right) \setminus (A \cup B) \right] \cup \left[ \left(\bigcup_{f \cap B \neq \emptyset} f\right) \setminus (A \cup B) \right] \\
+    & \subseteq \left[\left(\bigcup_{e \cap A \neq \emptyset} e\right) \setminus A \right] \cup \left[ \left(\bigcup_{f \cap B \neq \emptyset} f\right) \setminus B \right] \\
+    & = N(A) \cup N(B),
+\end{align*}
+$$
+
+as desired. <span style="float:right;">$\square$</span>
+
+Thus $N(U') \subseteq N(U) \cup N(\\{\overline{u}\\})$. Now note that since $G$ is cubic, $\|N(\\{\overline{u}\\}) \| = 4$, and by construction, $N(\\{\overline{u}\\}) \subset V$, hence
 
 $$
 \begin{align*}
     c(N(U')) - c(U')
-    & \leq C(N(U)) - c(U \setminus \{u\}) \cup \{\overline{u}\} \\
-    & = C(N(U)) - c(U) + c(\{u\}) - c(\{\overline{u}\}) \\
-    & = C(N(U)) - c(U) + 1 - \lambda \\ 
-    & < C(N(U)) - c(U), 
+    & \leq c(N(U)) + c(N(\{\overline{u}\})) - c(U \setminus \{u\} \cup \{\overline{u}\}) \\
+    & = c(N(U)) + 4 - c(U) + c(\{u\}) - c(\{\overline{u}\}) \\
+    & = c(N(U)) + 4 - c(U) + 1 - \lambda \\ 
+    & < c(N(U)) - c(U), 
 \end{align*}
 $$
 
-which also contradicts the minimality of $U$ if $\lambda > 1$.
+which also contradicts the minimality of $U$ if $\lambda > 5$.
 
 Then we know that $\overline{U_V} = \overline{V}$, implying $N(U) \subseteq V$. Similarly as in the previous section, consider $(u, v) \in E$, we have that $\overline{u}, \overline{v} \in U$, so $u$ and $v$ cannot be both in $U$, i.e. at least one of them is in $N(U)$, meaning $N(U)$ is a vertex cover of $G$. Moreover, we now have that $U_V = V \setminus N_V = V \setminus N(U)$, thus
 \\[
@@ -142,7 +159,7 @@ Therefore,
 \\[
     c(N(U)) - c(U) \leq -(\lambda+1)\frac{n}{6} - 2\lambda n = -\frac{13\lambda+1}{6} n < 0.
 \\]
-Let $0 \leq C \varepsilon \leq \frac{1}{2}$ and $U' \subseteq V$ be some subset such that $c(N(U')) - c(U') \leq (1 - C \varepsilon) \[c(N(U)) - c(U)\]$, then we have
+Let $0 \leq \varepsilon \leq \min\left(1, \frac{1}{2C}\right)$ for some constant $C > 0$ to be chosen later, and $U' \subseteq V$ be some subset such that $c(N(U')) - c(U') \leq (1 - C \varepsilon) \[c(N(U)) - c(U)\]$, then we have
 \\[
     c(N(U')) - c(U') \leq -(1 - C \varepsilon)\frac{13\lambda+1}{6} n, 
 \\] 
@@ -171,7 +188,9 @@ $$
 \end{align*}
 $$
 
-Thus to recap, if we choose $\lambda > 4$ and $C \leq \frac{\lambda}{5\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
+Thus to recap, if we choose $\lambda > 5$ and $C \leq \frac{1}{5} < \frac{\lambda}{5\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
+
+
 
 ## References
 
