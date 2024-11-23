@@ -21,7 +21,7 @@ This is a study during my second year at ENS Ulm, in the context of a research p
 
 In my previous post ([Nguyen, 2024](on_critical_sets_in_stable_matching)), we have discussed the problem of finding the critical sets in a stochastic matching network. In case of bipartite network, knowing such critical sets can lead to an assymptotically optimal randomised policy {% cite Busic2015 -f on_critical_sets_of_stable_matching.bib %}. One can then hope that such a policy might be generalisable to hypergraphs, for which the first step is to find the crtitical sets. On the other hand, as remarked in my previous post ([Nguyen, 2024](on_critical_sets_in_stable_matching)), the failure of linear programming approach hints that perhaps the problem is computationally intractable. At the time, I did not know if the question of tractability would be relevant, and my thank for Prof. Busic for drawing my attention to its relevance.
 
-In this post, I will show that indeed the problem of critical sets is $\NP$-hard and $\APX$-hard.
+In this post, I will show that indeed the problem of critical sets is $\NP$-hard and $\APX$-hard. Moreover, whilst the decision problem is clearly in $\NP$, and thus is $\NP$-complete, the optimisation problem is _not_ in $\APX$.
 
 ## 2. Problem statement
 
@@ -184,12 +184,15 @@ $$
     \Leftrightarrow |N'| 
     & \leq (1-C \varepsilon) \tau(G) + \frac{2\lambda}{\lambda + 1} C \varepsilon n \\
     & \leq (1-C \varepsilon) \tau(G) + \frac{12\lambda}{\lambda + 1} C \varepsilon \tau(G) \\
-    \Leftrightarrow \frac{|N'|}{\tau(G)} & \leq 1 + \epsilon C \frac{11\lambda - 1}{\lambda}.
+    \Leftrightarrow \frac{|N'|}{\tau(G)} & \leq 1 + \varepsilon C \frac{11\lambda - 1}{\lambda}.
 \end{align*}
 $$
 
 Thus to recap, if we choose $\lambda > 5$ and $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
 
+**Remark 2**. One may ask if our problem is $\APX$-complete, and the answer is "no". To see why, note that one can see that a generalisation of our $\L$-reduction works for the minimum vertex cover for hypergraphs. Morever, with a suitable choice of $\lambda$ which depends only on the input, a $C$-approximation algorithm for our problem then gives a $11C$-approximation for minimum vertex cover in hypergraphs.
+
+But that is impossible, as this problem is not in $\APX$ (whilst being $\APX$-hard). In particular, for $k$-regular hypergraphs, Dinur et al. {% cite Dinur2003 -f on_critical_sets_of_stable_matching.bib %} showed that it is impossible to approximate minimum vertex cover within $k-1-\varepsilon$ for any $k \geq 3$ and $\varepsilon > 0$
 
 
 ## References
