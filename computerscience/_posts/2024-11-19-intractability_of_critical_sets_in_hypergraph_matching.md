@@ -39,7 +39,7 @@ and $U$ is said to be independent if for all $e \in E$, we have $e \subsetneq U$
     U^* \in \arg \min_{U \subseteq V \text{ independent}} c(N(U)) - c(U).
 \\]
 
-## 3. Polynomial-time reduction and $\NP$-hardness.
+## 3. Polynomial-time reduction and $\NP$-hardness
 
 We reduce this problem from minimum vertex cover. Recall the problem of minimum vertex cover: given an undirected graph $G = (v, E)$, find a set $U \subseteq V$ of minimum cardinality such that any edge is incident to at least one vertex in $U$, i.e. for all $(u, v) \in E$, either $u$ or $v$ is in $E$ (or both). As popularly known, the problem is $\NP$-hard {% cite Karp1972 -f on_critical_sets_of_stable_matching.bib %}.
 
@@ -147,7 +147,7 @@ Then we know that $\overline{U_V} = \overline{V}$, implying $N(U) \subseteq V$. 
 \\[
     c(N(U)) - c(U) = \|N(U)\| - \lambda (|V| + \|V \setminus N(U)\|) = (1 + \lambda) \|N(U)\| - 2\lambda \| V \|.
 \\]
-Since $U$ minimises $c(N(U)) - c(U)$, necessarily we have $\|N(U)\| = \tau(G)$. Again, this reasoning works for any $\lambda > 4$.
+Since $U$ minimises $c(N(U)) - c(U)$, necessarily we have $\|N(U)\| = \tau(G)$. Again, this reasoning works for any $\lambda > 5$.
 
 Next, we want to bound $\tau(G)$ in terms of $n$. There are many, many ways to do that, but here we include a folklore argument for simplicity: $G$ is cubic, thus each vertex in $N(U)$ has degree $3$, and hence there are at most $3 \tau(G)$ edges incident to $N(U)$. Howerver, $N(U)$ is a vertex cover, thus all edges of $G$ are incident to $N(U)$, which implies $|E| \leq 3 \tau(G)$, or
 \\[
@@ -169,9 +169,9 @@ which implies that in fact $\overline{V} \subseteq U'$. Indeed, $\frac{13\lambda
 \\]
 On the other hand, if there exists some $\overline{u} \in \overline{V} \setminus U'$, then $U' \subseteq (V' \setminus \\{\overline{u}\\})$ $ = V \cup (\overline{V'} \setminus \\{u\\})$, which implies, 
 \\[
-    c(N(U')) - c(U') \geq -c(U') \geq -(\lambda-1) n - n = -\lambda n.
+    c(N(U')) - c(U') \geq -c(U') \geq -\lambda(n-1) - n = -\lambda n + \lambda - n \geq -\lambda n, 
 \\]
-And once we have $\overline{V} \subseteq U'$, an argument as above shows that $N' = N(U')$ is a vertex cover, thus we have
+if we choose $\lambda \geq n$. And once we have $\overline{V} \subseteq U'$, an argument as above shows that $N' = N(U')$ is a vertex cover, thus we have
 
 $$
 \begin{align*}
@@ -188,11 +188,11 @@ $$
 \end{align*}
 $$
 
-Thus to recap, if we choose $\lambda > 5$ and $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$, and our $\L$-reduction is complete.
+Thus to recap, given a cubic connected graph $G$, we choose $\lambda > \max(n, 5)$ and build an auxiliary graph $G'$. Let $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then if we find a set $U'$ such that $c(N(U')) - c(U')$ is within $1 - C\varepsilon$ the optimal value, we have that $N' = N(U')$ is a vertex cover of $G$ such that $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$. Our $\L$-reduction is complete.
 
 **Remark 2**. One may ask if our problem is $\APX$-complete, and the answer is "no". To see why, note that one can see that a generalisation of our $\L$-reduction works for the minimum vertex cover for hypergraphs. Morever, with a suitable choice of $\lambda$ which depends only on the input, a $C$-approximation algorithm for our problem then gives a $11C$-approximation for minimum vertex cover in hypergraphs.
 
-But that is impossible, as this problem is not in $\APX$ (whilst being $\APX$-hard). In particular, for $k$-regular hypergraphs, Dinur et al. {% cite Dinur2003 -f on_critical_sets_of_stable_matching.bib %} showed that it is impossible to approximate minimum vertex cover within $k-1-\varepsilon$ for any $k \geq 3$ and $\varepsilon > 0$
+But that is impossible, as this problem is not in $\APX$ (whilst being $\APX$-hard). In particular, for $k$-regular hypergraphs, Dinur et al. {% cite Dinur2003 -f on_critical_sets_of_stable_matching.bib %} showed that it is impossible to approximate minimum vertex cover within $k-1-\varepsilon$ for any $k \geq 3$ and $\varepsilon > 0$.
 
 
 ## References
