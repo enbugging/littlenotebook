@@ -87,7 +87,7 @@ $\APX$-hardness implies $\NP$-hardness, but since our $\L$-reduction is somewhat
 
 Our $\L$-reduction also starts with minimum vertex cover, which is known to be $\APX$-hard {% cite Papadimitriou1991 -f on_critical_sets_of_stable_matching.bib %} even for the case where the degrees are at most 3 {% cite Alimonti2000 -f on_critical_sets_of_stable_matching.bib %}.
 
-Given a cubic connected graph $G = (V, E)$, we construct the following auxiliary graph $G' = (V', E')$. $V'$ is obtained by combining two copies of $V$, namely $V$ and $\overline{V} = \\{ \overline{u} \mid u \in V\\}$, i.e. each vertex $u \in V$ has another copy $\overline{u} \in \overline{V}$. Then, for each edge $(u, v) \in E$, we have two hyper-edges in $E'$, namely $\\{u, v, \overline{u}\\}$ and $\\{u, v, \overline{v}\\}$. We assign to each vertex the following weight $c$: $c(u) = 1$ and $c(\overline{u}) = \lambda$ for all $u \in V$, where $\lambda$ is a constant to be determined later.
+Given a cubic connected graph $G = (V, E)$. Assume without loss of generality that $n = |V| \geq 2$. We construct the following auxiliary graph $G' = (V', E')$. $V'$ is obtained by combining two copies of $V$, namely $V$ and $\overline{V} = \\{ \overline{u} \mid u \in V\\}$, i.e. each vertex $u \in V$ has another copy $\overline{u} \in \overline{V}$. Then, for each edge $(u, v) \in E$, we have two hyper-edges in $E'$, namely $\\{u, v, \overline{u}\\}$ and $\\{u, v, \overline{v}\\}$. We assign to each vertex the following weight $c$: $c(u) = 1$ and $c(\overline{u}) = \lambda$ for all $u \in V$, where $\lambda$ is a constant to be determined later.
 
 Let $U \subseteq V'$ be minimising $c(N(U)) - c(U)$. As usual, denote $U_V = U \cap V$, and $\overline{U_V} = U \cap \overline{V}$, and $N_V = N(U) \cap V$ and $\overline{N_V} = N(U) \cap \overline{V}$. We have
 \\[
@@ -134,21 +134,21 @@ Since $U$ minimises $c(N(U)) - c(U)$, necessarily we have $\|N(U)\| = \tau(G)$. 
 
 Next, we want to bound $\tau(G)$ in terms of $n$. There are many, many ways to do that, but here we include a folklore argument for simplicity: $G$ is cubic, thus each vertex in $N(U)$ has degree $3$, and hence there are at most $3 \tau(G)$ edges incident to $N(U)$. Howerver, $N(U)$ is a vertex cover, thus all edges of $G$ are incident to $N(U)$, which implies $|E| \leq 3 \tau(G)$, or
 \\[
-    \tau(G) \geq \frac{|E|}{3} \geq \frac{n}{3}, 
+    \tau(G) \geq \frac{|E|}{3} \geq \frac{n-1}{3} \geq \frac{n}{6}, 
 \\]
-since $G$ is connected.
+since $G$ is connected and $n \geq 2$.
 
 Therefore, 
 \\[
-    c(N(U)) - c(U) \leq -(\lambda+1)\frac{n}{3} - 2\lambda n = -\frac{7\lambda+1}{3} n < 0.
+    c(N(U)) - c(U) \leq -(\lambda+1)\frac{n}{6} - 2\lambda n = -\frac{13\lambda+1}{6} n < 0.
 \\]
 Let $0 \leq C \varepsilon \leq \frac{1}{2}$ and $U' \subseteq V$ be some subset such that $c(N(U')) - c(U') \leq (1 - C \varepsilon) \[c(N(U)) - c(U)\]$, then we have
 \\[
-    c(N(U')) - c(U') \leq -(1 - C \varepsilon)\frac{7\lambda+1}{3} n, 
+    c(N(U')) - c(U') \leq -(1 - C \varepsilon)\frac{13\lambda+1}{6} n, 
 \\] 
-which implies that in fact $\overline{V} \subseteq U'$. Indeed, $\frac{7\lambda-1}{3} > 2\lambda$, which implies 
+which implies that in fact $\overline{V} \subseteq U'$. Indeed, $\frac{13\lambda+1}{6} > 2\lambda$, which implies 
 \\[
-    c(N(U')) - c(U') \leq -(1 - C \varepsilon)\frac{7\lambda+1}{3} n < -\lambda n. 
+    c(N(U')) - c(U') \leq -(1 - C \varepsilon)\frac{13\lambda+1}{6} n < -\lambda n. 
 \\]
 On the other hand, if there exists some $\overline{u} \in \overline{V} \setminus U'$, then $U' \subseteq (V' \setminus \\{\overline{u}\\})$ $ = V \cup (\overline{V'} \setminus \\{u\\})$, which implies, 
 \\[
