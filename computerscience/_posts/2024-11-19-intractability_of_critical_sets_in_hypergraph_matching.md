@@ -188,7 +188,7 @@ $$
 \end{align*}
 $$
 
-Thus to recap, given a cubic connected graph $G$, we choose $\lambda > \max(n, 5)$ and build an auxiliary graph $G'$. Let $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then if we find a set $U'$ such that $c(N(U')) - c(U')$ is within $1 - C\varepsilon$ the optimal value, we have that $N' = N(U')$ is a vertex cover of $G$ such that $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$. Our $\L$-reduction is complete.
+Thus to recap, given a cubic connected graph $G$, we choose $\lambda \geq \max(n, 6)$ and build an auxiliary graph $G'$. Let $C \leq \frac{1}{11} < \frac{\lambda}{11\lambda - 1}$, then if we find a set $U'$ such that $c(N(U')) - c(U')$ is within $1 - C\varepsilon$ the optimal value, we have that $N' = N(U')$ is a vertex cover of $G$ such that $\frac{\|N'\|}{\tau(G)} \leq 1 + \varepsilon$. Our $\L$-reduction is complete.
 
 **Remark 2**. One may ask if our problem is $\APX$-complete, and the answer is "no". To see why, note that one can see that a generalisation of our $\L$-reduction works for the minimum vertex cover for hypergraphs. Morever, with a suitable choice of $\lambda$ which depends only on the input, a $C$-approximation algorithm for our problem then gives a $11C$-approximation for minimum vertex cover in hypergraphs.
 
