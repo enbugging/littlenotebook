@@ -41,7 +41,7 @@ and $U$ is said to be independent if for all $e \in E$, we have $e \subsetneq U$
 
 ## 3. Polynomial-time reduction and $\NP$-hardness
 
-We reduce this problem from minimum vertex cover. Recall the problem of minimum vertex cover: given an undirected graph $G = (v, E)$, find a set $U \subseteq V$ of minimum cardinality such that any edge is incident to at least one vertex in $U$, i.e. for all $(u, v) \in E$, either $u$ or $v$ is in $E$ (or both). As popularly known, the problem is $\NP$-hard {% cite Karp1972 -f on_critical_sets_of_stable_matching.bib %}.
+We reduce this problem from minimum vertex cover. Recall the problem of minimum vertex cover: given an undirected graph $G = (V, E)$, find a set $U \subseteq V$ of minimum cardinality such that any edge is incident to at least one vertex in $U$, i.e. for all $(u, v) \in E$, either $u$ or $v$ is in $E$ (or both). As popularly known, the problem is $\NP$-hard {% cite Karp1972 -f on_critical_sets_of_stable_matching.bib %}.
 
 Now let us construct a new hypergraph as follow. Denote $n = \|V\|$. For each edge $e$ in $E$, we associate a new auxiliary vertex $u_e$. Let $G' = (V', E')$ be a hypergraph with $V' = V \cup \\{ u_e \mid e \in E \\}$ and $E' = \\{ \\{u, v, u_e \\} \mid (u, v) \in E\\}$. Lastly, we define the weight $c : V' \rightarrow \mathbb{R}\_{\geq 0}$ by $c(u) = 1$ for all $u \in V$ and $c(u_e) = 2n+1$ for all $e \in E$.
 
@@ -61,13 +61,13 @@ and
 $$
 \begin{align*}
     c(N(U)) - c(U) 
-    & = |N_V| - |U_V| - (2n+1)(|N_E| - |U_E|) \\
+    & = |N_V| - |U_V| + (2n+1)(|N_E| - |U_E|) \\
     & \geq - n - (2n+1)|U_E| \\
     & > n - (2n+1)(1 + |U_E|),
 \end{align*}
 $$
 
-contradicting the minimality of $c(N(U)) - c(U)$. Hence, $U_E = E$, which implies $N_E = \emptyset$, and $N(U) \subseteq V$. Moreover, we have
+contradicting the minimality of $c(N(U)) - c(U)$. Hence, $U_E = V' \setminus V$, which implies $N_E = \emptyset$, and $N(U) \subseteq V$. Moreover, we have
 \\[
     c(N(U)) - c(U) = -(2n+1)\|E\| + \|N(U)\|.
 \\]
@@ -94,25 +94,26 @@ Let $U \subseteq V'$ be minimising $c(N(U)) - c(U)$. As usual, denote $U_V = U \
     c(N(U)) - c(U) = \|N_V\| - \|U_V\| + \lambda\left(\| \overline{N_V} \| - \| \overline{U_V} \|\right)
 \\]
 
-First suppose $\overline{N_V} \cup \overline{U_V} \neq \overline{V}$, let $\overline{u} \in \overline{V} \setminus (\overline{N_V} \cup \overline{U_V})$, and consider $U' = U \cup \\{\overline{u'}\\}$. Then $N(U') = N(U) \cup N(\\{\overline{u}\\})$. Since $G$ is cubic, $\|N(\\{\overline{u}\\})\| = 4$, and thus
+First suppose $\overline{N_V} \cup \overline{U_V} \neq \overline{V}$, let $\overline{u} \in \overline{V} \setminus (\overline{N_V} \cup \overline{U_V})$, and consider $U' = U \cup \\{\overline{u}\\}$. Then $N(U') = N(U) \cup N(\\{\overline{u}\\})$. Since $G$ is cubic, $\|N(\\{\overline{u}\\})\| = 4$, and thus
 
 $$
 \begin{align*}
     c(N(U')) - c(U') 
-    & = c(N(U) \cup N(\{\overline{u}\})) - c(U \cup \{u\}) \\
-    & \leq c(N(U)) + c(N(\{\overline{u}\})) - c(U) - c(\{u\}) \\
+    & = c(N(U) \cup N(\{\overline{u}\})) - c(U \cup \{\overline{u}\}) \\
+    & \leq c(N(U)) + c(N(\{\overline{u}\})) - c(U) - c(\{\overline{u}\}) \\
     & \leq c(N(U)) - c(U) + 4 - \lambda \\
     & < c(N(U)) - c(U),
 \end{align*}
 $$
 
-which will contradict the minimality of $U$ if $\lambda > 4$.
+which will contradict the optimality of $U$ if $\lambda > 4$.
 
 Then we know that $\overline{N_V} \cup \overline{U_V} = \overline{V}$, suppose that $\overline{N_V} \neq \emptyset$. Let $\overline{u} \in \overline{N_V}$ and consider $U' = (U \setminus \\{u\\}) \cup \\{\overline{u}\\}$ which is still an independent set.
 
 Now this is where the analysis gets most tricky. To simplify our lives, we have the following lemma.
 
 **Lemma 1.** For $A, B \subseteq V'$, one has $N(A \cup B) \subseteq N(A) \cup N(B)$.
+
 _Proof._ Standard set manipulation gives
 
 $$
@@ -141,7 +142,7 @@ $$
 \end{align*}
 $$
 
-which also contradicts the minimality of $U$ if $\lambda > 5$.
+which also contradicts the optimality of $U$ if $\lambda > 5$.
 
 Then we know that $\overline{U_V} = \overline{V}$, implying $N(U) \subseteq V$. Similarly as in the previous section, consider $(u, v) \in E$, we have that $\overline{u}, \overline{v} \in U$, so $u$ and $v$ cannot be both in $U$, i.e. at least one of them is in $N(U)$, meaning $N(U)$ is a vertex cover of $G$. Moreover, we now have that $U_V = V \setminus N_V = V \setminus N(U)$, thus
 \\[
@@ -149,7 +150,7 @@ Then we know that $\overline{U_V} = \overline{V}$, implying $N(U) \subseteq V$. 
 \\]
 Since $U$ minimises $c(N(U)) - c(U)$, necessarily we have $\|N(U)\| = \tau(G)$. Again, this reasoning works for any $\lambda > 5$.
 
-Next, we want to bound $\tau(G)$ in terms of $n$. There are many, many ways to do that, but here we include a folklore argument for simplicity: $G$ is cubic, thus each vertex in $N(U)$ has degree $3$, and hence there are at most $3 \tau(G)$ edges incident to $N(U)$. Howerver, $N(U)$ is a vertex cover, thus all edges of $G$ are incident to $N(U)$, which implies $|E| \leq 3 \tau(G)$, or
+Next, we want to bound $\tau(G)$ in terms of $n$. There are many, many ways to do that, but here we include a folklore argument for simplicity: $G$ is cubic, thus each vertex in $N(U)$ has degree $3$, and hence there are at most $3 \tau(G)$ edges incident to $N(U)$. However, $N(U)$ is a vertex cover, thus all edges of $G$ are incident to $N(U)$, which implies $|E| \leq 3 \tau(G)$, or
 \\[
     \tau(G) \geq \frac{|E|}{3} \geq \frac{n-1}{3} \geq \frac{n}{6}, 
 \\]
