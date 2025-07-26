@@ -1,9 +1,14 @@
-name: GitHub Pages
+name: Build and Deploy Jekyll
 
 on:
   push:
     branches:
       - gh-pages
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -12,16 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.5
+          ruby-version: '3.4.5'
           bundler-cache: true
 
-      - name: Install dependencies
-        run: bundle install
+      - name: Install Jekyll
+        run: gem install jekyll
 
-      - name: Build site with Jekyll
+      - name: Build Jekyll site
         run: bundle exec jekyll build -d public
 
       - name: Upload GitHub Pages artifact
@@ -30,9 +34,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-24.04
-    permissions:
-      pages: write
-      id-token: write
 
     steps:
       - name: Deploy to GitHub Pages
