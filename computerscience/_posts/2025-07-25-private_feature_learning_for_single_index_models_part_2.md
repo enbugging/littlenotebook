@@ -11,9 +11,6 @@ This is part 2/3 of my M1 internship per requirement from ENS, done at Institute
 ## 3. First layer.
 
 In this section, we only use the first dataset $$X^W$$ thus by abuse of notation, we write $$X$$, $$x_j$$, and $$y_j$$ to mean $$X^W$$, $$x^W_j$$, and $$y^W_j$$. First we state the main result of this section.
-
-**Theorem 2.** After the first phase of Algorithm 1 (line 8), $$W_1$$ is $$(\varepsilon, \delta)$$-differentially private. Moreover, there exists a choice of second layer $$\overline{a}$$ such that for $$f^W(x) = \overline{a}^\intercal \sigma(W_1^\intercal x + b)$$, we have
-
 $$
 \newcommand{\P}{\mathbb{P}}
 \newcommand{\R}{\mathbb{R}}
@@ -28,6 +25,8 @@ $$
 \newcommand{\csch}{\text{csch}}
 \newcommand{\id}{\text{Id}}
 $$
+
+**Theorem 2.** After the first phase of Algorithm 1 (line 8), $$W_1$$ is $$(\varepsilon, \delta)$$-differentially private. Moreover, there exists a choice of second layer $$\overline{a}$$ such that for $$f^W(x) = \overline{a}^\intercal \sigma(W_1^\intercal x + b)$$, we have
 
 $$
 \begin{equation}

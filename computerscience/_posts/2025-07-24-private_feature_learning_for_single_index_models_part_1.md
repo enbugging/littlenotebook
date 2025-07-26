@@ -52,7 +52,6 @@ In this work, we consider
 We show that indeed, as with linear regression and random feature models, under some technical conditions and for all sufficiently over-parameterised models, it is possible to achieve both $$(\varepsilon, \delta)$$-differential privacy and $$o(1)$$ generalisation error, as $$p$$, $$n$$, and $$d$$ suitably tend to infinity, thus give an affirmative response to the above question.
 
 Section 2 sets rigorously the problem and the main result, introduces necessary notations and definitions, as well as provides a review of related works, before stating the outline of the proof. Section 3 and Section 4 analyse first and second layer respectively. Section 5 concludes with some final remarks. 
-
 $$
 \newcommand{\P}{\mathbb{P}}
 \newcommand{\R}{\mathbb{R}}
@@ -67,7 +66,6 @@ $$
 \newcommand{\csch}{\text{csch}}
 \newcommand{\id}{\text{Id}}
 $$
-
 ## 2. Preliminaries.
 
 ### 2.1. Differential privacy.
