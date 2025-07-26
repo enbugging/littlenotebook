@@ -17,7 +17,6 @@ In this section, we only use the dataset $$X^a$$, so by abuse of notation, we wr
 This follows from our choice of hyper-parameters (Assumption 4) and the design of gradient descent algorithm {% cite Bombari2025 -f private_feature_learning_for_single_index_models.bib %}.
 
 ### 4.2. Ridge regression.
-
 $$
 \newcommand{\P}{\mathbb{P}}
 \newcommand{\R}{\mathbb{R}}
@@ -32,7 +31,6 @@ $$
 \newcommand{\csch}{\text{csch}}
 \newcommand{\id}{\text{Id}}
 $$
-
 Consider the Hilbert space $$\H = \{f_a : x \mapsto a^\intercal \sigma(W_1^\intercal x + b) \mid a \in \R^d\}$$ corresponding to the second layer. Let $$f_\H = \arg \min_{f_a \in \H} \E_x\left[\left(f_a(x) - f_*(x)\right)\right]^2 + \lambda\|a\|^2$$, and $$a_\H$$ be the corresponding parameter generating $$f_\H$$, which must exist by Riesz representation theorem.
 
 Now denote the feature matrix $$\Phi = \sigma\left(W_1^\intercal X + b \cdot \mathbb{1}^\intercal\right) \in \R^{p \times n}$$ and the associated kernel $$K_n = \frac{1}{n} \Phi \Phi^\intercal \in \R^{p \times p}$$. For ridge regression

@@ -125,7 +125,7 @@ $$
 \end{equation}
 $$
 
-where Assumption 1 gives $$\alpha^*_0 = 0$$. On the other hand, initialisation gives $$w^0_i \sim \N\left(0, \frac{1}{d} \id\right)$$, so $$\langle \mu, w^0_i \rangle \sim \N\left(0, \frac{1}{d}\right)$$, and by tail bound of Gaussian variables {% cite Vershynin2018 -f private_feature_learning_for_single_index_models.bib %}, we have $\|\langle \mu, w^0_i \rangle\| \lesssim_\P \frac{\log d}{\sqrt{d}}$. Together this implies
+where Assumption 1 gives $$\alpha^*_0 = 0$$. On the other hand, initialisation gives $$w^0_i \sim \N\left(0, \frac{1}{d} \id\right)$$, so $$\langle \mu, w^0_i \rangle \sim \N\left(0, \frac{1}{d}\right)$$, and by tail bound of Gaussian variables {% cite Vershynin2018 -f private_feature_learning_for_single_index_models.bib %}, we have $\|\langle \mu, w^0\_i \rangle\| \lesssim_\P \frac{\log d}{\sqrt{d}}$. Together this implies
 
 $$
 \begin{equation}
