@@ -25,7 +25,7 @@ One can encounter similar models elsewhere: organ donors, dating application, su
 
 In their paper, Busic et al. derived a necessary condition for a bipartite matching model to be stabilisable, i.e. there exists a matching policy that makes the model stable. The condition is analogous to the condition given in Hall's marriage theorem to guarantee the existence of a perfect bipartite matching. Hall's marriage theorem is generalised by Tutte's theorem for general graphs; and similarly, Mairesse and Moyal {% cite Mairesse2016 -f on_critical_sets_of_stable_matching.bib %} generalised the aforementioned necessary condition for general matching graphs.
 
-Now let us use the analogy of graph matching problem once again. For bipartite graphs, when Hall's condition does not hold, Hall's theorem says that there is no perfect matching, but it does not tell us the size of the maximum matching. In that regard, Ore {% cite Ore1955 -f on_critical_sets_of_stable_matching.bib %} introduced the notion of deficiency. Recall that for a bipartite graph $G = (A \cup B, E)$, the deficiency of $G$ with respect to $A$ is the maximum, over all subsets $U \subseteq A$, of $\|U\| - \|N_G(U)\|$. Then if $d$ is the deficiency of $G$, $G$ admits a matching of size $\|X\| - d$. In a way, the notion of deficiency tells us how close a bipartite graph is to having a perfect matching.
+Now let us use the analogy of graph matching problem once again. For bipartite graphs, when Hall's condition does not hold, Hall's theorem says that there is no perfect matching, but it does not tell us the size of the maximum matching. In that regard, Ore {% cite Ore1955 -f on_critical_sets_of_stable_matching.bib %} introduced the notion of deficiency. Recall that for a bipartite graph $$G = (A \cup B, E)$$, the deficiency of $$G$$ with respect to $$A$$ is the maximum, over all subsets $$U \subseteq A$$, of $\|U\| - \|N_G(U)\|$. Then if $$d$$ is the deficiency of $$G$$, $$G$$ admits a matching of size $\|X\| - d$. In a way, the notion of deficiency tells us how close a bipartite graph is to having a perfect matching.
 
 In this post, we introduce a similar notion for graph matching models. In rough words, the necessary condition is an inequality, and we want to calculate the minimum gap between the two sides. Moreover, we also want to identify a subset of vertices that realises this minimum. This corresponds, in a sense, to the most critical part of a matching model, i.e. the part that a smallest amount of pertubation can make the whole model unstable.
 
@@ -33,11 +33,11 @@ In this post, we introduce a similar notion for graph matching models. In rough 
 
 ### 2.1. Matching models 
 
-Let $G = (V, E)$ be an undirected graph, called the matching graph. We equip it with a probability distribution $\mu$ on $V$, which denotes the probability of arrival of each type of item at an instance, i.e. at a given moment $t$, the probability that an item of type $u$ arrives is $\mu(u)$. We assume that items arrive independently.
+Let $$G = (V, E)$$ be an undirected graph, called the matching graph. We equip it with a probability distribution $$\mu$$ on $$V$$, which denotes the probability of arrival of each type of item at an instance, i.e. at a given moment $$t$$, the probability that an item of type $$u$$ arrives is $$\mu(u)$$. We assume that items arrive independently.
 
-Suppose at time $t$, an item of type $v$ arrives. If there exists an item of type $u$ in the buffer such that $(u, v) \in E$, then we may match them, after which $u$ is removed from the buffer. Otherwise, $v$ is added into the buffer. When there are multiple choices for $u$, we need to specify a matching policy to decide which item we match with $v$.
+Suppose at time $$t$$, an item of type $$v$$ arrives. If there exists an item of type $$u$$ in the buffer such that $$(u, v) \in E$$, then we may match them, after which $$u$$ is removed from the buffer. Otherwise, $$v$$ is added into the buffer. When there are multiple choices for $$u$$, we need to specify a matching policy to decide which item we match with $$v$$.
 
-The matching model for bipartite graph is defined similarly, except that now we have a bipartite graph $G = (A \cup B, E)$ to which we equip with a distribution $\mu$ on $A \times B$, denoting that at a given time $t$, an element $a \in A$ and $b \in B$ arrives with probability $\mu((a, b))$, which are then added into the buffer. Then, if there are two vertex $u \in A$ and $v \in B$ in the buffer such that $(u, v) \in E$, we can match them. And likewise, when there are multiple choices, we specify a matching policy to decide which item we choose. Denote $\mu_A$ and $\mu_B$ the marginal of $\mu$ on $A$ and $B$.
+The matching model for bipartite graph is defined similarly, except that now we have a bipartite graph $$G = (A \cup B, E)$$ to which we equip with a distribution $$\mu$$ on $$A \times B$$, denoting that at a given time $$t$$, an element $$a \in A$$ and $$b \in B$$ arrives with probability $$\mu((a, b))$$, which are then added into the buffer. Then, if there are two vertex $$u \in A$$ and $$v \in B$$ in the buffer such that $$(u, v) \in E$$, we can match them. And likewise, when there are multiple choices, we specify a matching policy to decide which item we choose. Denote $$\mu_A$$ and $$\mu_B$$ the marginal of $$\mu$$ on $$A$$ and $$B$$.
 
 ### 2.2. Deficiency and critical sets
 
@@ -50,48 +50,56 @@ $$
 \end{cases}
 $$
 
-Similarly, Mairesse and Moyal {% cite Mairesse2016 -f on_critical_sets_of_stable_matching.bib %} showed that a necessary condition for a matcing model to be stabilisable is that for all independent sets $U \subset V$, we have
-\\[
+Similarly, Mairesse and Moyal {% cite Mairesse2016 -f on_critical_sets_of_stable_matching.bib %} showed that a necessary condition for a matcing model to be stabilisable is that for all independent sets $$U \subset V$$, we have
+
+$$
     \mu(U) < \mu(N(U)),
-\\]
-where $\mu(U) = \int_U d\mu = \sum_{u \in U} \mu(u)$, and likewise for $\mu(N(U))$, $\mu_A(U)$, $\mu_A(N(U))$, $\mu_B(V)$ and $\mu_A(N(V))$.
+$$
 
-Analogous to the notion of deficiency in graph theory, for an independent set $U \subseteq V$, we define the deficiency of $U$ to be 
-\\[
+where $$\mu(U) = \int_U d\mu = \sum_{u \in U} \mu(u)$$, and likewise for $$\mu(N(U))$$, $$\mu_A(U)$$, $$\mu_A(N(U))$$, $$\mu_B(V)$$ and $$\mu_A(N(V))$$.
+
+Analogous to the notion of deficiency in graph theory, for an independent set $$U \subseteq V$$, we define the deficiency of $$U$$ to be 
+
+$$
     \def_{G, \mu} (U) = \mu(N(U)) - \mu(U),
-\\]
-and the deficiency of matching model $(G, \mu)$ to be 
-\\[
+$$
+
+and the deficiency of matching model $$(G, \mu)$$ to be 
+
+$$
     \def(G, \mu) = \min_{U \subseteq V \text{ independent}} \def_{G, \mu} (U).
-\\]
+$$
 
-An independent set $U \subseteq V$ such that $\deg_{G, \mu} (U) = \def(G, \mu)$ is called a critical set.
 
-The problem then is as follow: given $G$ and $\mu$, find a critical set.
+An independent set $$U \subseteq V$$ such that $$\deg_{G, \mu} (U) = \def(G, \mu)$$ is called a critical set.
+
+The problem then is as follow: given $$G$$ and $$\mu$$, find a critical set.
 
 ## 3. Finding a critical set is tractable
 
-A priori, there is no reason for this problem to be tracable: effectively, we are optimising over the set of independent sets. A similar problem, finding the maximum independent set, is well-known to be $\NP$-hard. That being said, even in the case of finding maximum independent set, we can still find approximation algorithms. One of the most well-known approach is to pose it an integer linear programming problem, then we relax the constraints to obtain a linear programming problem, for which we have efficient algorithms. In case of maximum independent set and vertex cover, we can obtain a half-integral optimal solution, which then provides a 2-approximation solution to the original problem.
+A priori, there is no reason for this problem to be tracable: effectively, we are optimising over the set of independent sets. A similar problem, finding the maximum independent set, is well-known to be $$\NP$$-hard. That being said, even in the case of finding maximum independent set, we can still find approximation algorithms. One of the most well-known approach is to pose it an integer linear programming problem, then we relax the constraints to obtain a linear programming problem, for which we have efficient algorithms. In case of maximum independent set and vertex cover, we can obtain a half-integral optimal solution, which then provides a 2-approximation solution to the original problem.
 
-Let us follow the same approach.  Assign to each vertex $u$ a variable $x_u \in \\{-1, 0, 1\\}$, where $x_u = -1$ means $u \in U$ and $x_u = 1$ means $u \in N(u)$. Then we can write 
-\\[
+Let us follow the same approach.  Assign to each vertex $$u$$ a variable $$x_u \in \{-1, 0, 1\}$$, where $$x_u = -1$$ means $$u \in U$$ and $$x_u = 1$$ means $$u \in N(u)$$. Then we can write 
+
+$$
     f(U) = \sum_{u \in V} \mu(u) x_u.
-\\]
-Such an assignment $(x\_u)\_{u \in V}$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$; conversely, if an assignment $x = (x_u)\_{u \in V} \in \\{-1, 0, 1\\}^V$ satisfies $x_u + x_v \geq 0$ for all $(u, v) \in E$, then no two adjacent vertices $u$ and $v$ can have $x_u = x_v = -1$, and so the set $U = \\{u \mid x_u = -1\\}$ is independent, and the two conditions are equivalent.
+$$
 
-Then the problem now is an integer programming problem $(1)$.
+Such an assignment $$(x_u)_{u \in V}$$ satisfies $$x_u + x_v \geq 0$$ for all $$(u, v) \in E$$; conversely, if an assignment $$x = (x_u)_{u \in V} \in \{-1, 0, 1\}^V$$ satisfies $$x_u + x_v \geq 0$$ for all $$(u, v) \in E$$, then no two adjacent vertices $$u$$ and $$v$$ can have $$x_u = x_v = -1$$, and so the set $$U = \{u \mid x_u = -1\}$$ is independent, and the two conditions are equivalent.
+
+Then the problem now is an integer programming problem $$(1)$$.
 
 $$
 \begin{equation}
     \begin{array}{ll@{}ll}
         \text{minimise}  & \displaystyle\sum_{u \in V} \mu(u) x_u &\\
         \text{subject to}& x_u + x_v \geq 0, &(u, v) \in E &\\
-        &x_u \in \{-1, 0,1\}, &u \in V
+        &x_u \in \{-1, 0, 1\}, &u \in V
     \end{array}
 \end{equation}
 $$
 
-Relaxing $(1)$ gives a linear programming problem $(2)$.
+Relaxing $$(1)$$ gives a linear programming problem $$(2)$$.
 
 $$
 \begin{equation}
@@ -119,15 +127,15 @@ and its LP relaxation always has a half-integral optimal solution, thus we have 
 
 What I did not expect, however, is that our LP relxation always has _integral_ optimal solution.
 
-**Lemma 1**. Problem $(2)$ is totally dual integral.
+**Lemma 1**. Problem $$(2)$$ is totally dual integral.
 
-_Proof._ This is equivalent to saying that for all weight $c$, there exists an integral optimal solution. Indeed, let $c = (\mu(u))\_{u \in V}$ and let $x = (x_u)\_{u \in V}$ be an optimal solution. Denote $$\sgn(y) = \begin{cases}
+_Proof._ This is equivalent to saying that for all weight $$c$$, there exists an integral optimal solution. Indeed, let $$c = (\mu(u))_{u \in V}$$ and let $$x = (x_u)_{u \in V}$$ be an optimal solution. Denote $$\sgn(y) = \begin{cases}
     1 & \text{ if } y > 0 \\
     -1 & \text{ if } y < 0 \\
     0 & \text{ otherwise}
-\end{cases}$$ and $x' = (\sgn(x_u))\_{u \in V}$, I claim that $c^T x' \leq c^T x$, and in particular, $x' \in \\{-1, 0, 1\\}^V$ is an integral optimal solution.
+\end{cases}$$ and $$x' = (\sgn(x_u))_{u \in V}$$, I claim that $$c^T x' \leq c^T x$$, and in particular, $$x' \in \{-1, 0, 1\}^V$$ is an integral optimal solution.
 
-Indeed, suppose the contrary that $c^T x' > c^T x$. Denote $\delta = (\delta_u)\_{u \in V}$ where $\delta_u = x\_u - x'\_u$, then one has $c^T \delta < 0$. Consider $x'' = x - \varepsilon \delta = (x_u - \varepsilon \delta_u)\_{u \in V}$ for some $1 > \varepsilon > 0$, we have that for all edge $(u, v) \in E$,
+Indeed, suppose the contrary that $$c^T x' > c^T x$$. Denote $$\delta = (\delta_u)_{u \in V}$$ where $$\delta_u = x_u - x'_u$$, then one has $$c^T \delta < 0$$. Consider $$x'' = x - \varepsilon \delta = (x_u - \varepsilon \delta_u)_{u \in V}$$ for some $$1 > \varepsilon > 0$$, we have that for all edge $$(u, v) \in E$$,
 
 $$
 \begin{aligned}
@@ -138,29 +146,29 @@ $$
 \end{aligned}
 $$
 
-where $x_u + x_v \geq 0$ gives that both terms are non-negative. Moreover, $\|x\'\'\_u\| = (1-\varepsilon)\|x_u\|$, so $x''$ is admissible. Finally, $c^T x'' = c^T x + \varepsilon c^T \delta < c^T x$, contradicting the fact that $x$ is optimal. <span style="float:right;">$\square$</span>
+where $$x_u + x_v \geq 0$$ gives that both terms are non-negative. Moreover, $\|x\'\'\_u\| = (1-\varepsilon)\|x_u\|$, so $$x''$$ is admissible. Finally, $$c^T x'' = c^T x + \varepsilon c^T \delta < c^T x$$, contradicting the fact that $$x$$ is optimal. <span style="float:right;">$$\square$$</span>
 
-Then, it suffices to solve $(2)$ with your favourite method for linear programming problems. Using either ellipsoid method or interior-point method solves $(2)$ in polynomial time; the latter gives the complexity $O(n^7)$ where $n = \|V\|$ is the number of vertices.
+Then, it suffices to solve $$(2)$$ with your favourite method for linear programming problems. Using either ellipsoid method or interior-point method solves $$(2)$$ in polynomial time; the latter gives the complexity $$O(n^7)$$ where $n = \|V\|$ is the number of vertices.
 
 ## 4. Last remarks
 
 ### 4.1. Generalisation to hypergraphs
 
-Lemma 1 no longer holds for general hyper-graph. Numerical experiments show that nonetheless, if a hyper-graph has rank $r$, then there exists an optimal rational solution whose denominators divide $(r-1)!$, suggesting that it is an approximation solution of $(1)$, e.g. via some rounding technique. Pursuing this direction as done with vertex cover problem should suggest that $(1)$ is in $\FPT$ and $\APX$-complete.
+Lemma 1 no longer holds for general hyper-graph. Numerical experiments show that nonetheless, if a hyper-graph has rank $$r$$, then there exists an optimal rational solution whose denominators divide $$(r-1)!$$, suggesting that it is an approximation solution of $$(1)$$, e.g. via some rounding technique. Pursuing this direction as done with vertex cover problem should suggest that $$(1)$$ is in $$\FPT$$ and $$\APX$$-complete.
 		
 However, this generalised version does not seem to have any relevance, thus I decided not to pursue the matter.
 
 Note that the corresponding integer linear programming problem no longer encodes the problem of finding critical sets. For the intractability of finding critical sets for hypergraphs, see my other post ([Nguyen, 2024](intractability_of_critical_sets_in_hypergraph_matching)).
 
-### 4.2. Solving $(2)$ using combinatorial algorithms
+### 4.2. Solving $$(2)$$ using combinatorial algorithms
 
-It is a curious open question about how much one can improve the complexity from $O(n^7)$. The fact that $(2)$ is totally dual integral is equivalent to saying that the corresponding polytope is integral, thus in the process of solving $(2)$, the active set in simplex method is always integral.
+It is a curious open question about how much one can improve the complexity from $$O(n^7)$$. The fact that $$(2)$$ is totally dual integral is equivalent to saying that the corresponding polytope is integral, thus in the process of solving $$(2)$$, the active set in simplex method is always integral.
 		
 In many cases, this corresponds to a combinatorial algorithm (for example, see a brief review by Black et al. {% cite Black2021 -f on_critical_sets_of_stable_matching.bib %}).
 
 ### 4.3. Streaming algorithms
 
-It might be of independent interest to solve $(2)$ and identify a critical set in streaming fashion. Little has been done in this regard for other problems in literature, but there is one such study done for fractional set cover by Indyk et al. {% cite Indyk2017 -f on_critical_sets_of_stable_matching.bib %}.
+It might be of independent interest to solve $$(2)$$ and identify a critical set in streaming fashion. Little has been done in this regard for other problems in literature, but there is one such study done for fractional set cover by Indyk et al. {% cite Indyk2017 -f on_critical_sets_of_stable_matching.bib %}.
 
 ## References
 
