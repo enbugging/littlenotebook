@@ -132,7 +132,7 @@ $$
 \end{equation}
 $$
 
-Combining $$\eqref{eq:second layer - ridge regression - inequality}$$, $$\eqref{eq:second layer - ridge regression - first term}$$, and $$\eqref{eq:second layer - ridge regression - second term}$$, we have
+Thus, to summarise, we have
 
 $$
 \begin{equation}
@@ -191,7 +191,7 @@ $$
 \end{equation}
 $$
 
-for $$d$$ sufficiently large. Using $$\eqref{eq:second layer - recursion for tilde a}$$ and triangle inequality, we have that
+for $$d$$ sufficiently large. Using recursion relation of $\tilde{a}_i$ and triangle inequality, we have that
 
 $$
 \begin{equation}
@@ -300,7 +300,7 @@ $$
 \end{equation}
 $$
 
-For $$S_4$$, we combine the trivial bound $\|y_j\| \lesssim_\P \log^q d$ and $$\|\varphi_j\| \leq \sqrt{p}$$ from above and $$\eqref{eq:second layer - bound on a_RR}$$ to obtain
+For $$S_4$$, we combine the trivial bound $\|y_j\| \lesssim_\P \log^q d$ and $$\|\varphi_j\| \leq \sqrt{p}$$ from above and the upper bound on $$a_\RR$$ to obtain
 
 $$
 \begin{equation}
@@ -315,7 +315,7 @@ $$
 $$
 
 
-For $$S_1$$, write $$a_0 - a_\RR^{(i)} = \psi v$$ and $$\varphi_j = \nu u$$ where $$u$$ and $$v$$ are unit vectors, note that $$v$$ is fixed after initialisation and $$u$$ is uniformly distributed on $$\mathbb{S}^{d-1}$$. Standard bound on inner product {% cite Brown2024 -f private_feature_learning_for_single_index_models.bib %} gives $\|\langle u, v\rangle\| \leq_\P \frac{\log^2 d}{\sqrt{p}}$. $$\eqref{eq:second layer - bound on id - eta_a L}$$, $$\eqref{eq:second layer - bound on a_0}$$, $$\eqref{eq:second layer - bound on a_RR}$$, and the trivial bound $$\nu \leq \sqrt{p}$$ give
+For $$S_1$$, write $$a_0 - a_\RR^{(i)} = \psi v$$ and $$\varphi_j = \nu u$$ where $$u$$ and $$v$$ are unit vectors, note that $$v$$ is fixed after initialisation and $$u$$ is uniformly distributed on $$\mathbb{S}^{d-1}$$. Standard bound on inner product {% cite Brown2024 -f private_feature_learning_for_single_index_models.bib %} gives $\|\langle u, v\rangle\| \leq_\P \frac{\log^2 d}{\sqrt{p}}$. The bounds on $$\id - \eta_a L\|$$, on $$\|a_0\|$$, on $$\|a_\RR\|$$, and the trivial bound $$\nu \leq \sqrt{p}$$ give
 
 $$
 \begin{equation}
@@ -378,7 +378,7 @@ $$
 
 ### 4.5. Noise analysis and early stopping.
 
-Knowing that the clipping does not occur, the final task is to show that the noise added and the fact that we stop the gradient descent after $$T$$ iteration do not hurt the performance, meaning that after $$T$$ iterations, we will have gotten sufficiently close to $$a_\RR$$. Using $$\eqref{eq:second layer - recursion for tilde a}$$, $$\eqref{eq:second layer - bound on id - eta_a L}$$, and $$\eqref{eq:second layer - bound on eta_a z'_i}$$ we have that
+Knowing that the clipping does not occur, the final task is to show that the noise added and the fact that we stop the gradient descent after $$T$$ iteration do not hurt the performance, meaning that after $$T$$ iterations, we will have gotten sufficiently close to $$a_\RR$$. Using the recursion relation of $$\tilde{a}_i$$, bound on $$\|\id - \eta_a L\|$$, and on $$\| \eta_a z'_i\|$$, we have that
 
 $$
 \begin{equation}

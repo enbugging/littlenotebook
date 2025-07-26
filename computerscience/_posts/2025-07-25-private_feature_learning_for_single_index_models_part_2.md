@@ -49,7 +49,15 @@ $$
 \end{equation}
 $$
 
-There are two terms, the former of which is negligible, and the latter can be approximated by its population counterpart. In particular, let $$g(w^0_i) = \E_x\left[f_*(x) \sigma'\left(\langle w^0_i, x \rangle + b_i\right) x\right]$$ and $$\hat{g}(w^0_i) = \frac{1}{n}\sum_{k = 1}^n f_*(x_k) \cdot \sigma'\left(\langle w^0_i, x_k \rangle + b_k\right)x_j$$, we have the following lemma.
+There are two terms, the former of which is negligible, and the latter can be approximated by its population counterpart. In particular, let
+
+$$g(w^0_i) = \E_x\left[f_*(x) \sigma'\left(\langle w^0_i, x \rangle + b_i\right) x\right]$$
+
+and
+
+$$\hat{g}(w^0_i) = \frac{1}{n}\sum_{k = 1}^n f_*(x_k) \cdot \sigma'\left(\langle w^0_i, x_k \rangle + b_k\right)x_j,$$
+
+we have the following lemma.
 
 **Lemma 3.** We have
 
@@ -129,7 +137,7 @@ Similarly, we write
 
 $$
 \begin{equation}
-	\label{eq:first layer - second term of Stein's lemma}
+	\label{eq:first layer - second term of Stein lemma}
 	\E_x \left[f'_*(x) \sigma' \left(\langle w^0_i, x \rangle + b\right)\right] = \sum_{j = 0}^\infty (j+1)^2 \alpha_{j+1}^{b_i} \alpha^*_{j+1} \langle \mu, w^0_i \rangle^j.
 \end{equation}
 $$
@@ -169,7 +177,7 @@ $$
 
 as desired.<span style="float:right;">$$\square$$</span>
 
-By initialisation $$b_i \sim \N(0, 1)$$ and concentration of Gaussian variable {% cite Vershynin2018 -f private_feature_learning_for_single_index_models.bib %}, for $$3\varepsilon_n - \frac{\varepsilon_p}{4} > \varepsilon_b > 0$$ fixed, we have $\|b_i\| \leq_\P \frac{\varepsilon_b}{4} \log d$ for all $$1 \leq i \leq p$$, implying $$\alpha^{b_i}_1 \geq_\P \frac{d^{-\varepsilon_b}{2}} > 0$$. On the other hand, Assumption 1 gives $$\alpha^*_1 \neq 0$$, thus in the right-hand side of $$\eqref{eq:first layer - second term of Stein's lemma}$$, the term with $$j = 0$$ dominates the sum, and we have
+By initialisation $$b_i \sim \N(0, 1)$$ and concentration of Gaussian variable {% cite Vershynin2018 -f private_feature_learning_for_single_index_models.bib %}, for $$3\varepsilon_n - \frac{\varepsilon_p}{4} > \varepsilon_b > 0$$ fixed, we have $\|b_i\| \leq_\P \frac{\varepsilon_b}{4} \log d$ for all $$1 \leq i \leq p$$, implying $$\alpha^{b_i}_1 \geq_\P \frac{d^{-\varepsilon_b}{2}} > 0$$. On the other hand, Assumption 1 gives $$\alpha^*_1 \neq 0$$, thus in the right-hand side of $$\eqref{eq:first layer - second term of Stein lemma}$$, the term with $$j = 0$$ dominates the sum, and we have
 
 $$
 \begin{equation}
@@ -181,22 +189,29 @@ Now note that by concentration of Gaussian's vector's norm {% cite Vershynin2018
 
 $$
 \begin{equation}
-\label{eq: first layer - rank-1 approximation}
 \begin{aligned}
     \nabla_{w_i} \L
     & = -a_{0, i} \left[\alpha_1^{b_i} \alpha^*_1 \mu + O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right)\right] \\
     \Rightarrow w_i^0 - \eta_W \nabla_{w_i} \L 
     & = w_i^0 + \eta_W a_{0, 1}  \left[\alpha_1^{b_i} \alpha^*_1 \mu + O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right)\right] \\
-    & = \eta_W \alpha_1^{b_i} \alpha^*_1 \mu + \eta_W O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right) \\
-    \Rightarrow w_i^1 
-    & = \frac{w_i^0 - \eta_W \nabla_{w_i} \L}{\left\| w_i^0 - \eta_W \nabla_{w_i} \L\right\|} = \mu + O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right).
+    & = \eta_W \alpha_1^{b_i} \alpha^*_1 \mu + \eta_W O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right)
 \end{aligned}
+\end{equation}
+$$
+
+giving
+
+$$
+\begin{equation}
+    \label{eq: first layer - rank-1 approximation}
+    w_i^1 = \frac{w_i^0 - \eta_W \nabla_{w_i} \L}{\left\| w_i^0 - \eta_W \nabla_{w_i} \L\right\|} = \mu + O_\P \left(\sqrt{\frac{d}{n}} \log^{q+1} d\right).
 \end{equation}
 $$
 
 ### 3.2. Differential privacy of $W_1$.
 
 Now recall the definition of $$\ell_2$$-sensitivity.
+
 **Definition 2.** {% cite Dwork2013 -f private_feature_learning_for_single_index_models.bib %} For an algorithm $$\mathcal{A}$$ returning values in $$\R^d$$, its $$\ell_2$$-sensitivity is given by
 
 $$
@@ -412,7 +427,7 @@ $$
 \end{equation}
 $$
 
-which, combining with \eqref{eq: first layer - expression of Delta_n^+} gives
+which, combining with the definition of $$\Delta^+_n$$, gives
 
 $$
 \begin{equation}
@@ -609,7 +624,7 @@ $$
 $$
 
 
-so by standard concentration inequality and \eqref{eq: first layer - bound of F-EF}.
+so by standard concentration inequality and $$\eqref{eq: first layer - bound of F-EF}$$.
 
 $$
 \begin{equation}
@@ -654,7 +669,6 @@ All in all, we have
 
 $$
 \begin{equation}
-	\label{eq: first layer - step 2}
 	\begin{aligned}
 		\E_x[(f_\infty(x) - f_p(x))^2] 
 		& = \E_x[(f_\infty(x) - f_p(x))^2 \mathbb{1}_{|\langle \mu, x \rangle \leq \log d}] \\
@@ -662,30 +676,46 @@ $$
 		& \lesssim_\P d^{-\frac{\varepsilon_p}{4(q+1)}} + \E\left[f_\infty(x)^2 \mathbb{1}_{|\langle \mu, x \rangle| > \log d}\right] \\
         & \phantom{=} + \E\left[f_p (x)^2 \mathbb{1}_{|\langle \mu, x \rangle| > \log d}\right] \\
 		& \lesssim_\P d^{-\frac{\varepsilon_p}{4(q+1)}} + d^{\frac{\varepsilon_p}{4}} e^{-\frac{\log^2 d}{2}} + e^{-\frac{\log^2 d}{2}} d^{\frac{\varepsilon_p}{8}} \\
-        &   = O_\P\left(d^{-\frac{\varepsilon_p}{4(q+1)}}\right).
+        & = O_\P\left(d^{-\frac{\varepsilon_p}{4(q+1)}}\right).
 	\end{aligned}
 \end{equation}
 $$
 
+or, to summarise,
+ 
+$$
+\begin{equation}
+	\label{eq: first layer - step 2}
+    \E_x[(f_\infty(x) - f_p(x))^2] = O_\P\left(d^{-\frac{\varepsilon_p}{4(q+1)}}\right).
+\end{equation}
+$$
 
-**Step 3.** Finally, we consider the initialisation and the noise. Let $$f^W(x) = \sum_{i = 1}^p \overline{a}_i \sigma (\langle w^1_i, x \rangle + b)$$, then by \eqref{eq: first layer - rank-1 approximation}.
+
+**Step 3.** Finally, we consider the initialisation and the noise. Let $$f^W(x) = \sum_{i = 1}^p \overline{a}_i \sigma (\langle w^1_i, x \rangle + b)$$, then by $$\eqref{eq: first layer - rank-1 approximation}$$.
 
 $$
 \begin{equation}
-	\label{eq: first layer - step 3}
 	\begin{aligned}
 		& \phantom{=} \E_x\left[\left(f^W(x) - f_p(x)\right)^2\right] \\
 		& = \mathbb{E}_x \left[\left(\frac{1}{|\mathcal{I}|}\sum_{i \in \mathcal{I}} a(b_i) \left[ \sigma (\langle w_i^1 , x \rangle + b_i) - \sigma(\langle \mu, x\rangle + b_i)\right] \right)^2 \right] \\
 		& \leq \frac{1}{|\mathcal{I}|^2} \|a(b)\|^2 \cdot \sum_{i \in \mathcal{I}}  \mathbb{E}_x \left[ \left[ \sigma (\langle w_i^1 , x \rangle + b_i) - \sigma(\langle \mu, x\rangle + b_i)\right]^2 \right] \\
 		& \lesssim \frac{d^{\frac{\varepsilon_p}{4}}}{p} \sum_{i \in \mathcal{I}}  \mathbb{E}_x \left[ \left\langle O_\P \left( \sqrt{\frac{d^{1 + \varepsilon_b}}{n}} \log^{q+1} d \left[1  \right. \right. \right. \right. \\
         & \phantom{=} \left. \left. \left. \left. + \log^2 d \frac{\sqrt{\log(1.25/\delta)}}{\varepsilon}\right] \right), x\right\rangle^2 \right]\\
-		& = O_\mathbb{P} \left(\frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+2} d + \frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+6} d \frac{\log(1.25/\delta)}{\varepsilon^2}\right).
+		& = O_\mathbb{P} \left(\frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+2} d + \frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+6} d \frac{\log(1.25/\delta)}{\varepsilon^2}\right),
 	\end{aligned}
 \end{equation}
 $$
 
+or, to summarise, 
 
-By our choice of $$\varepsilon_b$$, Assumption 1 and Assumption 3, combining \eqref{eq: first layer - step 1}, \eqref{eq: first layer - step 2}, and \eqref{eq: first layer - step 3}, we have
+$$
+\begin{equation}
+    \label{eq: first layer - step 3}
+    \E_x\left[\left(f^W(x) - f_p(x)\right)^2\right] \\ = O_\mathbb{P} \left(\frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+2} d + \frac{d^{1 + \varepsilon_b + \frac{\varepsilon_p}{4}}}{n} \log^{2q+6} d \frac{\log(1.25/\delta)}{\varepsilon^2}\right)
+\end{equation}
+$$
+
+By our choice of $$\varepsilon_b$$, Assumption 1 and Assumption 3, combining $$\eqref{eq: first layer - step 1}$$, $$\eqref{eq: first layer - step 2}$$, and $$\eqref{eq: first layer - step 3}$$, we have
 
 $$
 \begin{equation}
