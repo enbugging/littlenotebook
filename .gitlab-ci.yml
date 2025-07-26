@@ -1,40 +1,33 @@
-name: Build and Deploy Jekyll
+image: ruby:3.4.5
 
-on:
-  push:
-    branches:
-      - gh-pages
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+cache:
+  paths:
+    - vendor/
 
-jobs:
-  build:
-    runs-on: ubuntu-24.04
+before_script:
+  - gem install bundler
+  - bundle install --path vendor
 
-    steps:
-      - uses: actions/checkout@v4
+pages:
+  stage: deploy
+  script:
+    - bundle exec jekyll build -d public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "gh-pages"'
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.4.5'
-          bundler-cache: true
-
-      - name: Install Jekyll
-        run: gem install jekyll
-
-      - name: Build Jekyll site
-        run: bundle exec jekyll build -d public
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+test:
+  stage: test
+  script:
+    - bundle exec jekyll build -d test
+  artifacts:
+    paths:
+      - test
+  rules:
+    - if: '$CI_COMMIT_BRANCH != "gh-pages"'
