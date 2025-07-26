@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "An Ising model in RNA folding: Introduction"
+title: "An Ising model in RNA folding (part 1)"
 author: "Nguyen Doan Dai"
 categories: computerscience
 tags: math, computerscience
@@ -17,7 +17,7 @@ $$
 \newcommand{\U}{\textsf{U}}
 $$
 
-This is part 1 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.
+This is part 1/3 of my Bachelor thesis during my first year at Ulm, carried out at Hamilton Institute, Maynooth University and under supervision of Prof. Damien Woods, titled "Computational complexity of an Ising model in pseudoknotted nucleic acid folding", to be published.
 
 ## 1. Introduction
 Since the early studies on nucleic acids, there has been much effort going into harvesting its power. With RNAs, we have been achieved new ways to make vaccine {% cite Pardi2018 -f rna_ising_model %}, edit genome {% cite Deltcheva2011 -f rna_ising_model %}, and make nanostructured devices {% cite Ohno2019, Kai2021, Grabow2014 -f rna_ising_model %} to control cell fate {% cite Shibata2017 -f rna_ising_model %}. With DNA, we have found treatments for some chronic disease {% cite Sussman2024 -f rna_ising_model %}, done computations {% cite Fan2020 -f rna_ising_model %}, and stored data {% cite Ceze2019 -f rna_ising_model %}. And yet, there is so much more that we do not know about them. We now know that at least $$76\%$$ of human genome is transcribed, yet only $$1.2\%$$ of which encodes proteins {% cite Lee2019 -f rna_ising_model %}, and most of the rest, i.e. non-coding RNAs, have their functions yet to be completed unveiled {% cite Statello2021 -f rna_ising_model %}, and applications to be discovered. For example, it is only recently that tRNAs, most commonly known as encoding of amino acid sequences, can assemble into a DNA replicator {% cite Kuhnlein2021 -f rna_ising_model %}. Given how relatively recent these achievements are, it is expected that there is more potential to explore.
